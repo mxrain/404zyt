@@ -1,0 +1,25 @@
+{
+  "socialLinks": [
+    {
+      "url": "https://weixin.qq.com/",
+      "icon": "fab fa-weixin"
+    },
+    {
+      "url": "https://www.qq.com/",
+      "icon": "fab fa-qq"
+    },
+    {
+      "url": "https://telegram.org/",
+      "icon": "fab fa-telegram"
+    },
+    {
+      "url": "https://www.bilibili.com/",
+      "icon": "fab fa-bilibili"
+    },
+    {
+      "url": "https://www.youtube.com/",
+      "icon": "fab fa-youtube"
+    }
+  ],
+  "copyright": "© 2023 资源桶. 版权所有."
+}

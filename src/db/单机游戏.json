@@ -1,102 +1,537 @@
 [
-    {
-      "name": "巫师3：狂猎",
-      "introduction": "《巫师3：狂猎》是一款开放世界动作角色扮演游戏，由CD Projekt RED开发。游戏讲述了猎魔人杰洛特追寻女儿希里的旅程，并卷入一场庞大的战争。游戏拥有广阔的世界地图、丰富的剧情、复杂的角色互动以及精美的画面和音效，被誉为史上最伟大的游戏之一。",
-      "resource_information": "开发商: CD Projekt RED\n发行商: CD Projekt RED\n平台: Windows, PlayStation 4, Xbox One, Nintendo Switch\n发售日期: 2015年5月19日\n类型: 动作角色扮演\n",
-      "is_tup_up": false,
-      "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
-      "uploaded": 161598390000,
-      "update_time": 161598390000,
-      "category": {
-        "main": "软件游戏",
-        "sub": {
-          "main": "游戏",
-          "sub": "单机游戏"
-        }
-      },
-      "resource_directory": "巫师3：狂猎[2015][动作角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
-      "images": [
-        "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
-      ]
+  {
+    "name": "死亡搁浅",
+    "introduction": "《死亡搁浅》是一款开放世界动作冒险游戏，由小岛秀夫工作室开发。游戏讲述了快递员山姆·布里奇斯在末日世界中运送货物，连接人类社会的故事。游戏拥有独特的玩法、充满深意的剧情、精美的画面以及感人的配乐，被誉为小岛秀夫的巅峰之作。",
+    "resource_information": "开发商: 小岛秀夫工作室\n发行商: Sony Interactive Entertainment\n平台: PlayStation 4, Windows\n发售日期: 2019年11月8日\n类型: 动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
     },
-    {
-      "name": "塞尔达传说：旷野之息",
-      "introduction": "《塞尔达传说：旷野之息》是一款开放世界动作冒险游戏，由任天堂开发。游戏讲述了林克从沉睡中醒来，在海拉鲁大陆上寻找失去记忆的塞尔达公主，并对抗盖侬的入侵。游戏拥有广阔的开放世界、自由探索、丰富的解谜要素和战斗系统，被誉为史上最伟大的游戏之一。",
-      "resource_information": "开发商: 任天堂\n发行商: 任天堂\n平台: Nintendo Switch\n发售日期: 2017年3月3日\n类型: 动作冒险\n",
-      "is_tup_up": false,
-      "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
-      "uploaded": 161598390000,
-      "update_time": 161598390000,
-      "category": {
-        "main": "软件游戏",
-        "sub": {
-          "main": "游戏",
-          "sub": "单机游戏"
-        }
-      },
-      "resource_directory": "塞尔达传说：旷野之息[2017][动作冒险]\n├─ 游戏安装包.nsp\n├─ 游戏补丁.nsp\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
-      "images": [
-        "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
-      ]
+    "resource_directory": "死亡搁浅[2019][动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "动作冒险",
+      "末日",
+      "快递",
+      "小岛秀夫",
+      "剧情",
+      "画面",
+      "音乐"
+    ]
+  },
+  {
+    "name": "赛博朋克2077",
+    "introduction": "《赛博朋克2077》是一款开放世界动作角色扮演游戏，由CD Projekt Red开发。游戏设定在一个反乌托邦的未来世界，玩家扮演一名雇佣兵，在充满暴力、科技和阴谋的都市中进行冒险。游戏拥有自由度极高的玩法、引人入胜的剧情、精美的画面和逼真的音效，被誉为2020年最受期待的游戏之一。",
+    "resource_information": "开发商: CD Projekt Red\n发行商: CD Projekt\n平台: PlayStation 4, Xbox One, Windows, Stadia\n发售日期: 2020年12月10日\n类型: 动作角色扮演\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
     },
-    {
-      "name": "上古卷轴5：天际",
-      "introduction": "《上古卷轴5：天际》是一款开放世界角色扮演游戏，由Bethesda Game Studios开发。游戏讲述了玩家扮演龙裔，前往天际省份阻止毁灭世界的巨龙阿尔杜因的故事。游戏拥有广阔的世界地图、自由的角色定制、丰富的任务系统和战斗系统，被誉为史上最伟大的游戏之一。",
-      "resource_information": "开发商: Bethesda Game Studios\n发行商: Bethesda Softworks\n平台: Windows, PlayStation 3, Xbox 360, PlayStation 4, Xbox One\n发售日期: 2011年11月11日\n类型: 角色扮演\n",
-      "is_tup_up": false,
-      "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
-      "uploaded": 161598390000,
-      "update_time": 161598390000,
-      "category": {
-        "main": "软件游戏",
-        "sub": {
-          "main": "游戏",
-          "sub": "单机游戏"
-        }
-      },
-      "resource_directory": "上古卷轴5：天际[2011][角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
-      "images": [
-        "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
-      ]
+    "resource_directory": "赛博朋克2077[2020][动作角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "动作角色扮演",
+      "赛博朋克",
+      "未来",
+      "雇佣兵",
+      "自由度",
+      "剧情",
+      "画面",
+      "音效"
+    ]
+  },
+  {
+    "name": "最终幻想7 重制版",
+    "introduction": "《最终幻想7 重制版》是一款角色扮演游戏，是经典游戏《最终幻想7》的重制版。游戏讲述了云·斯特莱夫和他的伙伴们与邪恶的“神罗”公司对抗的故事。游戏采用最新的技术，将原版游戏的画面、音乐和剧情进行了全面提升，同时还加入了一些新的元素。",
+    "resource_information": "开发商: Square Enix\n发行商: Square Enix\n平台: PlayStation 4\n发售日期: 2020年4月10日\n类型: 角色扮演\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
     },
-    {
-      "name": "模拟人生4",
-      "introduction": "《模拟人生4》是一款模拟人生游戏，由The Sims Studio开发。游戏允许玩家创建自己的模拟人物，并让他们在虚拟世界中生活、工作、社交、恋爱、结婚、生子等等。游戏拥有丰富的自定义选项、各种人生场景以及充满趣味性的互动玩法，深受玩家喜爱。",
-      "resource_information": "开发商: The Sims Studio\n发行商: Electronic Arts\n平台: Windows, macOS\n发售日期: 2014年9月2日\n类型: 模拟人生\n",
-      "is_tup_up": false,
-      "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
-      "uploaded": 161598390000,
-      "update_time": 161598390000,
-      "category": {
-        "main": "软件游戏",
-        "sub": {
-          "main": "游戏",
-          "sub": "单机游戏"
-        }
-      },
-      "resource_directory": "模拟人生4[2014][模拟人生]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
-      "images": [
-        "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
-      ]
+    "resource_directory": "最终幻想7 重制版[2020][角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "角色扮演",
+      "重制版",
+      "经典",
+      "画面",
+      "音乐",
+      "剧情",
+      "战斗",
+      "魔法"
+    ]
+  },
+  {
+    "name": "鬼泣5",
+    "introduction": "《鬼泣5》是一款动作游戏，是鬼泣系列的第五部正统作品。游戏讲述了但丁、尼禄和维吉尔三兄弟对抗恶魔的故事。游戏拥有爽快的战斗系统、华丽的画面、刺激的音乐和引人入胜的剧情。",
+    "resource_information": "开发商: 卡普空\n发行商: 卡普空\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2019年3月8日\n类型: 动作\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
     },
-    {
-      "name": "死亡搁浅",
-      "introduction": "《死亡搁浅》是一款开放世界动作冒险游戏，由小岛秀夫工作室开发。游戏讲述了快递员山姆·布里奇斯在末日世界中运送货物，连接人类社会的故事。游戏拥有独特的玩法、充满深意的剧情、精美的画面以及感人的配乐，被誉为小岛秀夫的巅峰之作。",
-      "resource_information": "开发商: 小岛秀夫工作室\n发行商: Sony Interactive Entertainment\n平台: PlayStation 4, Windows\n发售日期: 2019年11月8日\n类型: 动作冒险\n",
-      "is_tup_up": false,
-      "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
-      "uploaded": 171598390000,
-      "update_time": 171598390000,
-      "category": {
-        "main": "软件游戏",
-        "sub": {
-          "main": "游戏",
-          "sub": "单机游戏"
-        }
-      },
-      "resource_directory": "死亡搁浅[2019][动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
-      "images": [
-        "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
-      ]
-    }
-  ]
+    "resource_directory": "鬼泣5[2019][动作]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "动作",
+      "战斗",
+      "恶魔",
+      "兄弟",
+      "画面",
+      "音乐",
+      "剧情"
+    ]
+  },
+  {
+    "name": "只狼：影逝二度",
+    "introduction": "《只狼：影逝二度》是一款动作冒险游戏，由FromSoftware开发。游戏设定在战国时代的日本，玩家扮演一名忍者，在残酷的战场上战斗，拯救主君。游戏拥有高难度战斗、独特的义肢系统、精美的画面和感人的剧情。",
+    "resource_information": "开发商: FromSoftware\n发行商: 动视\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2019年3月22日\n类型: 动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "只狼：影逝二度[2019][动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "动作冒险",
+      "忍者",
+      "战国",
+      "战斗",
+      "义肢",
+      "画面",
+      "剧情"
+    ]
+  },
+  {
+    "name": "地铁离去",
+    "introduction": "《地铁离去》是一款第一人称射击游戏，由4A Games开发。游戏设定在一个核战后的俄罗斯，玩家扮演一名士兵，在充满危险的地下世界和荒凉的陆地中生存。游戏拥有逼真的画面、紧张的战斗、感人的剧情和独特的生存要素。",
+    "resource_information": "开发商: 4A Games\n发行商: 深银\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2019年2月15日\n类型: 第一人称射击\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "地铁离去[2019][第一人称射击]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "第一人称射击",
+      "核战",
+      "俄罗斯",
+      "生存",
+      "画面",
+      "战斗",
+      "剧情"
+    ]
+  },
+  {
+    "name": "控制",
+    "introduction": "《控制》是一款第三人称动作冒险游戏，由Remedy Entertainment开发。游戏设定在一个超自然现象频发的建筑物中，玩家扮演一名联邦调查局特工，与神秘力量对抗。游戏拥有独特的战斗系统、诡异的氛围、精美的画面和引人入胜的剧情。",
+    "resource_information": "开发商: Remedy Entertainment\n发行商: 505 Games\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2019年8月27日\n类型: 第三人称动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "控制[2019][第三人称动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "第三人称动作冒险",
+      "超自然",
+      "建筑物",
+      "战斗",
+      "氛围",
+      "画面",
+      "剧情"
+    ]
+  },
+  {
+    "name": "生化危机2 重制版",
+    "introduction": "《生化危机2 重制版》是一款恐怖生存游戏，是经典游戏《生化危机2》的重制版。游戏讲述了里昂·S·肯尼迪和克莱尔·雷德菲尔德在浣熊市中与僵尸和怪物对抗的故事。游戏采用最新的技术，将原版游戏的画面、音乐和剧情进行了全面提升，同时还加入了一些新的元素。",
+    "resource_information": "开发商: 卡普空\n发行商: 卡普空\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2019年1月25日\n类型: 恐怖生存\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "生化危机2 重制版[2019][恐怖生存]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "恐怖生存",
+      "重制版",
+      "僵尸",
+      "怪物",
+      "画面",
+      "音乐",
+      "剧情",
+      "生存"
+    ]
+  },
+  {
+    "name": "星球大战绝地：陨落的武士团",
+    "introduction": "《星球大战绝地：陨落的武士团》是一款动作冒险游戏，由Respawn Entertainment开发。游戏设定在星球大战电影正传与前传之间，玩家扮演一名绝地武士，在银河系中冒险，对抗帝国的黑暗势力。游戏拥有流畅的动作系统、精美的画面、引人入胜的剧情和令人难忘的配乐。",
+    "resource_information": "开发商: Respawn Entertainment\n发行商: EA\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2019年11月15日\n类型: 动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "星球大战绝地：陨落的武士团[2019][动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "动作冒险",
+      "星球大战",
+      "绝地",
+      "银河系",
+      "帝国",
+      "动作",
+      "画面",
+      "剧情",
+      "音乐"
+    ]
+  },
+  {
+    "name": "漫威蜘蛛侠",
+    "introduction": "《漫威蜘蛛侠》是一款开放世界动作冒险游戏，由Insomniac Games开发。游戏讲述了彼得·帕克作为蜘蛛侠在纽约市打击犯罪的故事。游戏拥有自由度极高的玩法、爽快的战斗系统、精美的画面和引人入胜的剧情。",
+    "resource_information": "开发商: Insomniac Games\n发行商: Sony Interactive Entertainment\n平台: PlayStation 4\n发售日期: 2018年9月7日\n类型: 开放世界动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "漫威蜘蛛侠[2018][开放世界动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "动作冒险",
+      "蜘蛛侠",
+      "纽约",
+      "犯罪",
+      "自由度",
+      "战斗",
+      "画面",
+      "剧情"
+    ]
+  },
+  {
+    "name": "巫师3：狂猎",
+    "introduction": "《巫师3：狂猎》是一款开放世界角色扮演游戏，由CD Projekt Red开发。游戏讲述了猎魔人杰洛特在广阔的世界中冒险，完成各种任务，寻找失踪的女儿的故事。游戏拥有丰富的剧情、自由度极高的玩法、精美的画面和引人入胜的音乐。",
+    "resource_information": "开发商: CD Projekt Red\n发行商: CD Projekt\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2015年5月19日\n类型: 开放世界角色扮演\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "巫师3：狂猎[2015][开放世界角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "角色扮演",
+      "猎魔人",
+      "冒险",
+      "剧情",
+      "自由度",
+      "画面",
+      "音乐"
+    ]
+  },
+  {
+    "name": "上古卷轴5：天际",
+    "introduction": "《上古卷轴5：天际》是一款开放世界角色扮演游戏，由Bethesda Game Studios开发。游戏设定在一个广阔的奇幻世界，玩家可以自由选择角色、职业、种族，并进行各种冒险。游戏拥有自由度极高的玩法、丰富的剧情、精美的画面和引人入胜的音乐。",
+    "resource_information": "开发商: Bethesda Game Studios\n发行商: Bethesda Softworks\n平台: PlayStation 3, Xbox 360, Windows\n发售日期: 2011年11月11日\n类型: 开放世界角色扮演\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "上古卷轴5：天际[2011][开放世界角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "角色扮演",
+      "奇幻",
+      "自由度",
+      "剧情",
+      "画面",
+      "音乐"
+    ]
+  },
+  {
+    "name": "塞尔达传说：旷野之息",
+    "introduction": "《塞尔达传说：旷野之息》是一款开放世界动作冒险游戏，由任天堂开发。游戏设定在一个广阔的奇幻世界，玩家扮演林克，在海拉鲁王国中冒险，寻找失踪的塞尔达公主。游戏拥有自由度极高的玩法、精美的画面、引人入胜的剧情和独特的解谜元素。",
+    "resource_information": "开发商: 任天堂\n发行商: 任天堂\n平台: Nintendo Switch\n发售日期: 2017年3月3日\n类型: 开放世界动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "塞尔达传说：旷野之息[2017][开放世界动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "动作冒险",
+      "奇幻",
+      "自由度",
+      "剧情",
+      "画面",
+      "解谜"
+    ]
+  },
+  {
+    "name": "战神4",
+    "introduction": "《战神4》是一款动作冒险游戏，由Santa Monica Studio开发。游戏讲述了奎托斯和他的儿子阿特柔斯在北欧神话世界中冒险的故事。游戏拥有爽快的战斗系统、精美的画面、感人的剧情和独特的父子关系。",
+    "resource_information": "开发商: Santa Monica Studio\n发行商: Sony Interactive Entertainment\n平台: PlayStation 4\n发售日期: 2018年4月20日\n类型: 动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "战神4[2018][动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "动作冒险",
+      "战神",
+      "北欧神话",
+      "战斗",
+      "画面",
+      "剧情",
+      "父子"
+    ]
+  },
+  {
+    "name": "荒野大镖客：救赎2",
+    "introduction": "《荒野大镖客：救赎2》是一款开放世界动作冒险游戏，由Rockstar Games开发。游戏设定在19世纪末的美国西部，玩家扮演一名亡命之徒亚瑟·摩根，在残酷的西部世界中生存。游戏拥有丰富的剧情、自由度极高的玩法、精美的画面和引人入胜的音乐。",
+    "resource_information": "开发商: Rockstar Games\n发行商: Rockstar Games\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2018年10月26日\n类型: 开放世界动作冒险\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "荒野大镖客：救赎2[2018][开放世界动作冒险]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "开放世界",
+      "动作冒险",
+      "西部",
+      "亡命之徒",
+      "剧情",
+      "自由度",
+      "画面",
+      "音乐"
+    ]
+  },
+  {
+    "name": "怪物猎人：世界",
+    "introduction": "《怪物猎人：世界》是一款动作游戏，由卡普空开发。游戏设定在一个充满奇幻生物的世界，玩家扮演一名猎人，与各种各样的怪物战斗。游戏拥有爽快的战斗系统、丰富的武器和装备系统、精美的画面和独特的狩猎体验。",
+    "resource_information": "开发商: 卡普空\n发行商: 卡普空\n平台: PlayStation 4, Xbox One, Windows\n发售日期: 2018年1月26日\n类型: 动作\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "怪物猎人：世界[2018][动作]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "动作",
+      "怪物",
+      "狩猎",
+      "战斗",
+      "武器",
+      "装备",
+      "画面"
+    ]
+  },
+  {
+    "name": "女神异闻录5 皇家版",
+    "introduction": "《女神异闻录5 皇家版》是一款角色扮演游戏，是《女神异闻录5》的增强版。游戏讲述了一群拥有特殊能力的高中生对抗邪恶势力的故事。游戏拥有引人入胜的剧情、独特的战斗系统、精美的画面和动听的音乐。",
+    "resource_information": "开发商: Atlus\n发行商: 世嘉\n平台: PlayStation 4, Windows\n发售日期: 2019年10月31日\n类型: 角色扮演\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "女神异闻录5 皇家版[2019][角色扮演]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "角色扮演",
+      "高中生",
+      "邪恶",
+      "剧情",
+      "战斗",
+      "画面",
+      "音乐"
+    ]
+  },
+  {
+    "name": "全面战争：三国",
+    "introduction": "《全面战争：三国》是一款策略游戏，由Creative Assembly开发。游戏设定在东汉末年的三国时期，玩家可以扮演不同的势力，进行政治、经济、外交和军事行动，最终统一中国。游戏拥有丰富的历史背景、策略性和战术性，以及精美的画面和真实的战斗。",
+    "resource_information": "开发商: Creative Assembly\n发行商: 世嘉\n平台: Windows\n发售日期: 2019年5月23日\n类型: 策略\n",
+    "is_tup_up": false,
+    "quark_link": "https://pan.quark.cn/s/8495f93f51a6",
+    "uploaded": 161598390000,
+    "update_time": 161598390000,
+    "category": {
+      "main": "软件游戏",
+      "sub": {
+        "main": "游戏",
+        "sub": "单机游戏"
+      }
+    },
+    "resource_directory": "全面战争：三国[2019][策略]\n├─ 游戏安装包.exe\n├─ 游戏补丁.exe\n├─ 游戏存档.zip\n├─ 游戏攻略.pdf",
+    "images": [
+      "https://img.quark.cn/p/5f3a0f7e3d7f8e0b0a8b9e0b.jpg"
+    ],
+    "tags": [
+      "策略",
+      "三国",
+      "历史",
+      "政治",
+      "经济",
+      "外交",
+      "军事",
+      "画面",
+      "战斗"
+    ]
+  }
+]
