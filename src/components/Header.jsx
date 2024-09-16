@@ -15,7 +15,7 @@ const CategoryMenu = ({ categories, depth = 0 }) => {
                     onMouseEnter={() => setHoveredCategory(key)}
                     onMouseLeave={() => setHoveredCategory(null)}
                 >
-                    <Link to={`/${key}`} className={styles.categoryLink}>
+                    <Link to={`/category/${key}`} className={styles.categoryLink}>
                         <span style={{ fontWeight: value.items ? 'bold' : 'normal' }}>{key}</span>
                     </Link>
                     {value.items && hoveredCategory === key && (
@@ -30,7 +30,7 @@ const Header = () => {
     const [categories, setCategories] = useState({});
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     useEffect(() => {
-        fetch('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/db-gFUAYrLs8TrckOa08hHXXjZeVxBROR.json')
+        fetch('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
