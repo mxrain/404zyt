@@ -36,6 +36,10 @@
   .grid > *:nth-child(1) {
     grid-column: span 2;
   }
+
+  .grid > *:nth-child(2) {
+    grid-column: span 2;
+  }
   
   .button {
     background-color: #3490dc;
@@ -179,6 +183,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    line-clamp: 2;
     overflow: hidden;
   }
   
