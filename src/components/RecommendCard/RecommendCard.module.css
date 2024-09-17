@@ -1,0 +1,92 @@
+.card {
+    width: 100%;
+    height: 800px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .refreshButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .refreshButton:hover {
+    transform: rotate(180deg);
+  }
+  
+  .cardContent {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 16px;
+  }
+  
+  .item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+  }
+  
+  .item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .itemName {
+    flex: 1;
+    font-weight: bold;
+  }
+  
+  .itemDescription {
+    flex: 2;
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  .itemSize {
+    flex: 0 0 80px;
+    text-align: right;
+    color: #999;
+    font-size: 0.8em;
+  }
+  
+  .cardFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .cardFooter button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .cardFooter button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .skeleton {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+  }
