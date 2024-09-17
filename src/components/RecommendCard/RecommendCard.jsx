@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import styles from './RecommendCard.module.css';
 
-const RecommendCard = ({ title, items }) => {
+const RecommendCard = ({ title, items, onRefresh }) => {
   const [visibleItems, setVisibleItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -11,17 +11,17 @@ const RecommendCard = ({ title, items }) => {
 
   const itemsPerPage = 20;
 
-  useEffect(() => {
-    loadItems();
-  }, [currentPage]);
-
-  const loadItems = () => {
+  const loadItems = useCallback(() => {
     setLoading(true);
     const start = currentPage * itemsPerPage;
     const end = start + itemsPerPage;
     setVisibleItems(items.slice(start, end));
     setLoading(false);
-  };
+  }, [currentPage, items, itemsPerPage]);
+
+  useEffect(() => {
+    loadItems();
+  }, [loadItems, items]);
 
   const handlePrevPage = () => {
     if (currentPage > 0) {
@@ -37,7 +37,27 @@ const RecommendCard = ({ title, items }) => {
 
   const handleRefresh = () => {
     setCurrentPage(0);
-    loadItems();
+    setLoading(true);
+    if (onRefresh) {
+      onRefresh().then(() => {
+        loadItems();
+        setLoading(false);
+      });
+    } else {
+      // 如果没有提供 onRefresh，我们至少可以重新加载当前项目
+      loadItems();
+      setLoading(false);
+    }
+  };
+
+  const renderSkeletonItems = () => {
+    return Array(itemsPerPage).fill().map((_, index) => (
+      <div key={index} className={styles.skeletonItem}>
+        <div className={styles.skeletonName}></div>
+        <div className={styles.skeletonDescription}></div>
+        <div className={styles.skeletonSize}></div>
+      </div>
+    ));
   };
 
   return (
@@ -50,7 +70,7 @@ const RecommendCard = ({ title, items }) => {
       </div>
       <div className={styles.cardContent}>
         {loading ? (
-          <div className={styles.skeleton}>加载中...</div>
+          renderSkeletonItems()
         ) : (
           visibleItems.map((item) => (
             <Link to={`/resource/${item.uuid}`} key={item.uuid} className={styles.item}>
