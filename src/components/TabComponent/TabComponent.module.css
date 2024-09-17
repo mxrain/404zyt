@@ -16,13 +16,10 @@
   gap: 10px;
   padding: 10px;
   text-align: center;
-  
 }
 
 .tabItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
   padding: 3px 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -30,7 +27,11 @@
   font-weight: 600;
   background: #e3e3e3;
   color: #353535;
+  text-decoration: none;
+  white-space: nowrap;
 }
+
+
 
 .tabItem:hover {
   background: #f0f0f0;
@@ -136,6 +137,7 @@
     transform: translateY(-10px);
   }
 }
+
 
 
 

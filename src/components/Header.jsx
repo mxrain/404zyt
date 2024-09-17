@@ -56,7 +56,7 @@ const Header = () => {
                 </Link>
                 <nav className={styles.nav}>
                     <div
-                        className={styles.menuContainer}
+                        className={`${styles.menuContainer} ${styles.hideOnMobile}`}
                         onMouseEnter={() => setIsMenuOpen(true)}
                         onMouseLeave={() => setIsMenuOpen(false)}
                     >

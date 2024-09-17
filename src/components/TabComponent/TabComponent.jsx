@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDbData } from '../../features/dbData/dbSlice';
 
 export default function TabComponent() {
-  const [isExceed, setIsExceed] = useState(false);
+  const [isExceed, setIsExceed] = useState(() => {
+    // 检查是否为移动设备（这里假设宽度小于768px为移动设备）
+    return window.innerWidth < 768;
+  });
   const [showMoreModal, setShowMoreModal] = useState(false);
   const headerRef = useRef(null);
   const moreButtonRef = useRef(null);
@@ -52,11 +55,18 @@ export default function TabComponent() {
       }
     };
 
+    const handleResize = () => {
+      // 当窗口大小改变时，更新isExceed状态
+      setIsExceed(window.innerWidth < 768 || headerRef.current.getBoundingClientRect().bottom <= 50);
+    };
+
     window.addEventListener('scroll', handleScroll); // 监听滚动事件 调用handleScroll函数
+    window.addEventListener('resize', handleResize); // 监听窗口大小改变事件
     document.addEventListener('mousedown', handleClickOutside); // 监听点击事件
 
     return () => {
       window.removeEventListener('scroll', handleScroll); // 移除监听事件
+      window.removeEventListener('resize', handleResize); // 移除窗口大小改变事件监听
       document.removeEventListener('mousedown', handleClickOutside); // 移除点击事件监听
     };
   }, [dispatch, data, status]);

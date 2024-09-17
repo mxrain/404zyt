@@ -172,3 +172,10 @@
 .categoryItem span {
   margin-left: auto;
 }
+
+/* 在文件末尾添加这个新的样式 */
+@media (max-width: 768px) {
+    .hideOnMobile {
+        display: none;
+    }
+}
