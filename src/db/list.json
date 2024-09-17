@@ -469,18 +469,46 @@
   ],
   "latest": [
     {
-      "title": "热门电影",
-      "link": "/movie/123",
-      "cover": "https://example.com/cover1.jpg",
-      "introduction": "一部精彩的电影",
-      "score": 4.5
+      "description": "一部精彩的科幻电影，带你进入未来世界。",
+      "image": "https://example.com/cover1.jpg",
+      "title": "星际穿越",
+      "updateTime": "2024-09-17T12:00:00Z",
+      "tags": ["科幻", "冒险", "未来"]
     },
     {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
+      "description": "一款策略游戏，挑战你的智慧和耐心。",
+      "image": "https://example.com/cover2.jpg",
+      "title": "王国争霸",
+      "updateTime": "2024-09-17T12:05:00Z",
+      "tags": ["策略", "历史", "战争"]
+    },
+    {
+      "description": "一部感人至深的家庭电影，讲述亲情的力量。",
+      "image": "https://example.com/cover3.jpg",
+      "title": "家的温暖",
+      "updateTime": "2024-09-17T12:10:00Z",
+      "tags": ["家庭", "情感", "温馨"]
+    },
+    {
+      "description": "一款动作游戏，体验速度与激情的碰撞。",
+      "image": "https://example.com/cover4.jpg",
+      "title": "极速赛车",
+      "updateTime": "2024-09-17T12:15:00Z",
+      "tags": ["动作", "赛车", "速度"]
+    },
+    {
+      "description": "一部悬疑电影，揭开层层谜团。",
+      "image": "https://example.com/cover5.jpg",
+      "title": "迷雾重重",
+      "updateTime": "2024-09-17T12:20:00Z",
+      "tags": ["悬疑", "侦探", "推理"]
+    },
+    {
+      "description": "一款角色扮演游戏，探索未知的奇幻世界。",
+      "image": "https://example.com/cover50.jpg",
+      "title": "奇幻之旅",
+      "updateTime": "2024-09-17T13:30:00Z",
+      "tags": ["角色扮演", "奇幻", "冒险"]
     }
   ],
   "top": [
