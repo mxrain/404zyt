@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ItemCardSkeleton from '../../components/ItemCardSkeleton';
 
 const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
-const DEFAULT_IMAGE = 'https://picsum.photos/200/300';
+const DEFAULT_IMAGE = 'https://picsum.photos/id/36/150/150';
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -88,10 +88,10 @@ const ItemList = styled.div`
 
 const ItemCard = ({ item, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageSrc, setImageSrc] = useState(item.images && item.images.length > 0 ? item.images[0] : DEFAULT_IMAGE);
+  const [imageSrc, setImageSrc] = useState(item.images && item.images.length > 0 ? item.images[0] : DEFAULT_IMAGE+`?${index}`);
 
   const handleImageError = () => {
-    setImageSrc(DEFAULT_IMAGE + `?${index}`);
+    setImageSrc(DEFAULT_IMAGE + `?code=${index}`);
   };
 
   return (
