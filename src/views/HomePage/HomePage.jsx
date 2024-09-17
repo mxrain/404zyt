@@ -5,7 +5,6 @@ import TabComponent from '../../components/TabComponent/TabComponent';
 import RecommendCard from '../../components/RecommendCard/RecommendCard';
 // import CarouselCard from '../../components/CarouselCard/CarouselCard';
 
-const ITEMS_PER_PAGE = 10;
 const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
 
 export default function HomePage() {
