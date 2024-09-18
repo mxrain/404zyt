@@ -255,3 +255,53 @@
       font-size: 0.8rem;
     }
   }
+
+  /* 大屏幕 (≥1200px): 保持4列布局 */
+  @media screen and (min-width: 1200px) {
+    .grid {
+      grid-template-columns: repeat(5 , 1fr);
+    }
+    
+    .grid > *:nth-child(1) {
+      grid-column: span 2;
+    }
+    .grid > *:nth-child(2) {
+      grid-column: span 1;
+    }
+  }
+
+  /* 中等屏幕 (≥768px 和 <1200px): 3列布局 */
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid > *:nth-child(1){
+      grid-column: span 3;
+    } 
+    .grid > *:nth-child(2) {
+      grid-column: span 2;
+    }
+  }
+
+  /* 小屏幕 (<768px): 2列布局 */
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid > * {
+      grid-column: span 1 !important;
+    }
+  }
+
+  /* 超小屏幕 (<480px): 1列布局 */
+  @media screen and (max-width: 479px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .grid > * {
+      grid-column: span 1 !important;
+    }
+  }

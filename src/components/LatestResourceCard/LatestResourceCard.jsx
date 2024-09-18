@@ -17,7 +17,7 @@ const LatestResourceCard = ({ title, items }) => {
             <div className={styles.itemList}>
                 {items.map((item, index) => (
                     <div key={index} className={styles.item} onClick={() => handleItemClick(item)} title={item.description}>
-                        <div className={styles.backgroundImage} style={{ backgroundImage: `url(${item.image})` }} />
+                        <div className={styles.backgroundImage} style={{ backgroundImage: `url(${item.image}?${index})` }} />
                         <div className={styles.content}>
                             <div className={styles.title}>{item.title}</div>
                             <div className={styles.tags}>

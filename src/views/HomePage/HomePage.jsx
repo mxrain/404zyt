@@ -51,6 +51,7 @@ export default function HomePage() {
         <RecommendCard title="推荐列表" items={data.recommend} />
         <LatestResourceCard title="最新资源" items={data.latest} />
         <HotCard title="最热资源" hot={data.hot}/>
+        <HotCard title="高收益资源" hot={data.top}/>
       </div>
     </div>
   );

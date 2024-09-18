@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HotCard = ({ hot, title }) => {
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 5; // 每页显示的项目数
+    const itemsPerPage = 8;
     const pageCount = Math.ceil(hot.length / itemsPerPage);
 
     const nextPage = () => {
@@ -15,17 +15,24 @@ const HotCard = ({ hot, title }) => {
         setCurrentPage((prev) => (prev - 1 + pageCount) % pageCount);
     };
 
+    const goToPage = (pageIndex) => {
+        setCurrentPage(pageIndex);
+    };
+
     const currentItems = hot.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
     return (
         <div className={styles.hotCard}>
             <h2 className={styles.title}>{title}</h2>
             <ul className={styles.list}>
-                {currentItems.map((item) => (
+                {currentItems.map((item, index) => (
                     <li key={item.id} className={styles.item}>
                         <Link to={item.link} className={styles.link}>
                             <span className={styles.itemTitle}>{item.title}</span>
-                            <div className={styles.itemDetails} style={{backgroundImage: `url(${item.imageUrl})`}}>
+                            <div 
+                                className={styles.itemDetails} 
+                                style={{backgroundImage: `url(${item.imageUrl}?${index + currentPage * itemsPerPage})`}}
+                            >
                                 <div className={styles.itemInfo}>
                                     <p className={styles.itemDescription}>{item.description}</p>
                                     <p className={styles.itemRating}>评分: {item.rating}</p>
@@ -36,17 +43,18 @@ const HotCard = ({ hot, title }) => {
                     </li>
                 ))}
             </ul>
-            <div className={styles.navigation}>
-                <button onClick={prevPage} className={styles.navButton}>&lt;</button>
-                <div className={styles.pageIndicator}>
-                    {[...Array(pageCount)].map((_, index) => (
-                        <span
-                            key={index}
-                            className={`${styles.dot} ${index === currentPage ? styles.activeDot : ''}`}
-                        />
-                    ))}
-                </div>
-                <button onClick={nextPage} className={styles.navButton}>&gt;</button>
+            <div className={styles.navigationWrapper}>
+                <button onClick={prevPage} className={`${styles.navButton} ${styles.prevButton}`}>&#9664;</button>
+                <button onClick={nextPage} className={`${styles.navButton} ${styles.nextButton}`}>&#9654;</button>
+            </div>
+            <div className={styles.pageIndicator}>
+                {[...Array(pageCount)].map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => goToPage(index)}
+                        className={`${styles.dot} ${index === currentPage ? styles.activeDot : ''}`}
+                    />
+                ))}
             </div>
         </div>
     );
