@@ -23,10 +23,14 @@ const HotCard = ({ hot, title }) => {
             <ul className={styles.list}>
                 {currentItems.map((item) => (
                     <li key={item.id} className={styles.item}>
-                        <Link to={`/hot/${item.id}`} className={styles.link}>
-                            <div className={styles.itemContent}>
-                                <span className={styles.itemTitle}>{item.title}</span>
-                                {item.imageUrl && <img src={item.imageUrl} alt={item.title} className={styles.itemImage} />}
+                        <Link to={item.link} className={styles.link}>
+                            <span className={styles.itemTitle}>{item.title}</span>
+                            <div className={styles.itemDetails} style={{backgroundImage: `url(${item.imageUrl})`}}>
+                                <div className={styles.itemInfo}>
+                                    <p className={styles.itemDescription}>{item.description}</p>
+                                    <p className={styles.itemRating}>评分: {item.rating}</p>
+                                    <p className={styles.itemCategory}>类别: {item.category}</p>
+                                </div>
                             </div>
                         </Link>
                     </li>

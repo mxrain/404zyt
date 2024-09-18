@@ -17,12 +17,12 @@
     padding: 0 15px;
     margin: 0;
     height: 250px;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .item {
     margin-bottom: 10px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 5px;
 }
 
@@ -34,26 +34,46 @@
     text-decoration: none;
     color: white;
     display: block;
-    padding: 5px;
-}
-
-.itemContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 10px;
 }
 
 .itemTitle {
-    flex: 1;
     font-size: 14px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.itemImage {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+.itemDetails {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-size: cover;
+    background-position: center;
     border-radius: 5px;
-    margin-left: 10px;
+    position: relative;
+}
+
+.item:hover .itemDetails {
+    max-height: 150px;
+}
+
+.itemInfo {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+.itemDescription, .itemRating, .itemCategory {
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .navigation {
