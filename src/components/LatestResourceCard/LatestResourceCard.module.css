@@ -5,11 +5,13 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     border-radius: 16px;
 }
+
 .card h2 {
     padding: 15px 15px 5px 15px;
     font-size: 18px;
     font-weight: 600;
 }
+
 .itemList {
     padding: 0 15px;
     height: 280px;
@@ -19,24 +21,138 @@
     /* 滚动条样式 */
     scrollbar-width: none;
 }
+
 .itemList::-webkit-scrollbar {
     display: none;
 }
-.item {
-    display: flex;
-    flex-direction: row ;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    border-radius: 10px;
-    margin: 10px 0;
-    padding: 10px;
 
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    /* 背景图片溢出 */
+.item {
+    position: relative;
     overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 80px;
+    margin: 5px 0 0 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
 .item:hover {
-    background-color: #f0f0f0;
+    /* 放大 */
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.arrowIcon {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.item:hover .arrowIcon {
+    right: 10px;
+    color: #ffffff;
+    opacity: 1;
+}
+
+.item:hover .title {
+    /* 向右移动 */
+    /* transform: scale(1.1); */
+    font-size: 20px;
+}
+
+.item:hover .tags {
+    /* 隐藏 */
+    display: none;
+}
+
+.item:hover .updateTime {
+    /* 定位 */
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    transform: scale(1.1);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.2s ease;
+}
+
+
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    font-size: 10px;
+}
+
+.updateTime {
+    font-size: 10px;
+    opacity: 0.8;
+    margin-top: auto;
+}
+
+@media (max-width: 870px) {
+    .card {
+        height: auto;
+        min-height: 330px;
+    }
+
+    .itemList {
+        height: auto;
+        max-height: 280px;
+    }
 }

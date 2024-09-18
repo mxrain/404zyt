@@ -1,0 +1,94 @@
+.hotCard {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    color: white;
+    height: 330px;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 18px;
+    margin: 15px 15px 10px;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0 15px;
+    margin: 0;
+    height: 250px;
+    overflow: hidden;
+}
+
+.item {
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 5px;
+}
+
+.itemContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.itemTitle {
+    flex: 1;
+    font-size: 14px;
+}
+
+.itemImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.pageIndicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+}
+
+.activeDot {
+    background-color: white;
+}

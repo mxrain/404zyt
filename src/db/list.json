@@ -403,68 +403,94 @@
   ],
   "hot": [
     {
-      "title": "热门电影",
-      "link": "/movie/123",
-      "cover": "https://example.com/cover1.jpg",
-      "introduction": "一部精彩的电影",
-      "score": 4.5
+      "id": "1",
+      "title": "星际穿越",
+      "link": "/movie/1",
+      "imageUrl": "https://example.com/interstellar.jpg",
+      "description": "一部震撼人心的科幻史诗",
+      "rating": 9.3,
+      "category": "电影"
     },
     {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
+      "id": "2",
+      "title": "塞尔达传说：旷野之息",
+      "link": "/game/2",
+      "imageUrl": "https://example.com/zelda-botw.jpg",
+      "description": "开放世界冒险游戏的巅峰之作",
+      "rating": 9.7,
+      "category": "游戏"
     },
     {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    },    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    }
-    ,    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    },    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    },    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    },    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    },    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
-    },    {
-      "title": "最新游戏",
-      "link": "/game/456",
-      "cover": "https://example.com/cover2.jpg",
-      "introduction": "一款好玩的游戏",
-      "score": 4.8
+      "id": "3",
+      "title": "破产姐妹",
+      "link": "/tv/3",
+      "imageUrl": "https://example.com/2-broke-girls.jpg",
+      "description": "幽默风趣的情景喜剧",
+      "rating": 8.2,
+      "category": "电视剧"
+    },
+    {
+      "id": "4",
+      "title": "流浪地球",
+      "link": "/movie/4",
+      "imageUrl": "https://example.com/wandering-earth.jpg",
+      "description": "中国科幻电影的里程碑之作",
+      "rating": 8.0,
+      "category": "电影"
+    },
+    {
+      "id": "5",
+      "title": "我的世界",
+      "link": "/game/5",
+      "imageUrl": "https://example.com/minecraft.jpg",
+      "description": "创造无限可能的沙盒游戏",
+      "rating": 9.5,
+      "category": "游戏"
+    },
+    {
+      "id": "6",
+      "title": "权力的游戏",
+      "link": "/tv/6",
+      "imageUrl": "https://example.com/game-of-thrones.jpg",
+      "description": "史诗奇幻电视剧巨作",
+      "rating": 9.4,
+      "category": "电视剧"
+    },
+    {
+      "id": "7",
+      "title": "盗梦空间",
+      "link": "/movie/7",
+      "imageUrl": "https://example.com/inception.jpg",
+      "description": "烧脑的科幻悬疑电影",
+      "rating": 9.2,
+      "category": "电影"
+    },
+    {
+      "id": "8",
+      "title": "荒野大镖客：救赎2",
+      "link": "/game/8",
+      "imageUrl": "https://example.com/rdr2.jpg",
+      "description": "开放世界西部动作冒险游戏",
+      "rating": 9.8,
+      "category": "游戏"
+    },
+    {
+      "id": "9",
+      "title": "绝命毒师",
+      "link": "/tv/9",
+      "imageUrl": "https://example.com/breaking-bad.jpg",
+      "description": "犯罪剧情电视剧的巅峰之作",
+      "rating": 9.6,
+      "category": "电视剧"
+    },
+    {
+      "id": "10",
+      "title": "寄生虫",
+      "link": "/movie/10",
+      "imageUrl": "https://example.com/parasite.jpg",
+      "description": "荣获奥斯卡最佳影片的韩国电影",
+      "rating": 8.9,
+      "category": "电影"
     }
   ],
   "latest": [

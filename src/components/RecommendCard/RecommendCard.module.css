@@ -8,7 +8,17 @@
     display: flex;
     flex-direction: column;
 }
-
+@media (max-width: 870px) {
+    .card {
+      height: auto;
+      min-height: 330px;
+    }
+  
+    .cardContent {
+      height: auto;
+      max-height: 280px;
+    }
+  }
 .cardHeader {
     font-size: 12px;
     display: flex;
