@@ -3,22 +3,6 @@
     "icon": "path_d_value_here",
     "link": "/mv",
     "items": {
-      "12312": {
-        "icon": "3123",
-        "link": "/3123",
-        "items": {
-          "2131": {
-            "icon": "123123",
-            "link": "/123123",
-            "items": {
-              "12312": {
-                "icon": "312312",
-                "link": "/123123"
-              }
-            }
-          }
-        }
-      },
       "番剧": {
         "icon": "path_d_value_here",
         "link": "/anime/"
