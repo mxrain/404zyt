@@ -205,6 +205,7 @@
 }
 
 .iconSelector {
+  position: relative;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -215,23 +216,37 @@
   overflow-y: auto;
 }
 
-.iconGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.iconButton {
-  background: none;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
+.selectedIcon {
   cursor: pointer;
-  transition: background-color 0.3s;
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
 }
 
-.iconButton:hover {
+.iconList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  padding: 5px;
+}
+
+.iconItem {
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconItem:hover {
   background-color: #f0f0f0;
 }
 

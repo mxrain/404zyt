@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { RefreshCw } from 'lucide-react';
 import styles from './HomePage.module.css';
 import TabComponent from '../../components/TabComponent/TabComponent';
@@ -18,22 +18,22 @@ export default function HomePage() {
   });
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch(`${BASE_URL}/list.json`);
       const listData = await response.json();
       setData(listData);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('获取数据时出错:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleRefresh = () => {
     fetchData();
@@ -44,7 +44,7 @@ export default function HomePage() {
       <TabComponent />
       <div className={styles.header}>
         <button onClick={handleRefresh} disabled={loading} className={styles.refreshButton}>
-          <RefreshCw className={styles.refreshIcon} /> 重新加载123
+          <RefreshCw className={styles.refreshIcon} /> 重新加载
         </button>
       </div>
       <div className={styles.grid}>

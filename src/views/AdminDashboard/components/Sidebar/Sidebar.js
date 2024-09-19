@@ -47,6 +47,10 @@ export default function Sidebar() {
         <Database size={18} />
         分类
       </SidebarLink>
+      <SidebarLink to="/sys/listcrud" onClick={() => handleClick('/sys/listcrud', '列表')}>
+        <Database size={18} />
+        首页4大列表
+      </SidebarLink>
       <SidebarLink to="/sys/products" onClick={() => handleClick('/sys/products', 'Products')}>
         <ShoppingBag size={18} />
         Products
