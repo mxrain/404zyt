@@ -2,7 +2,7 @@
   "recommend": [
     {
       "uuid": "1",
-      "name": "精彩电影",
+      "name": "哈利波特",
       "description": "一部精彩的电影",
       "size": "2GB",
       "img": "https://picsum.photos/220/140",
@@ -195,7 +195,7 @@
       "link": "/movie/4",
       "imageUrl": "https://picsum.photos/220/140",
       "description": "中国科幻电影的里程碑之作",
-      "rating": 8.0,
+      "rating": 8,
       "category": "电影"
     },
     {
@@ -267,7 +267,7 @@
       "link": "/tv/12",
       "imageUrl": "https://picsum.photos/220/140",
       "description": "探讨科技与人性的前卫剧集",
-      "rating": 9.0,
+      "rating": 9,
       "category": "电视剧"
     },
     {
@@ -330,7 +330,7 @@
       "link": "/movie/19",
       "imageUrl": "https://picsum.photos/220/140",
       "description": "充满寓意的动画电影",
-      "rating": 9.0,
+      "rating": 9,
       "category": "电影"
     },
     {
@@ -350,7 +350,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "星际穿越",
       "updateTime": "2024-09-17T12:00:00Z",
-      "tags": ["科幻", "冒险", "未来"]
+      "tags": [
+        "科幻",
+        "冒险",
+        "未来"
+      ]
     },
     {
       "uuid": "2",
@@ -358,7 +362,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "王国争霸",
       "updateTime": "2024-09-17T12:05:00Z",
-      "tags": ["策略", "历史", "战争"]
+      "tags": [
+        "策略",
+        "历史",
+        "战争"
+      ]
     },
     {
       "uuid": "3",
@@ -366,7 +374,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "家的温暖",
       "updateTime": "2024-09-17T12:10:00Z",
-      "tags": ["家庭", "情感", "温馨"]
+      "tags": [
+        "家庭",
+        "情感",
+        "温馨"
+      ]
     },
     {
       "uuid": "4",
@@ -374,7 +386,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "极速赛车",
       "updateTime": "2024-09-17T12:15:00Z",
-      "tags": ["动作", "赛车", "速度"]
+      "tags": [
+        "动作",
+        "赛车",
+        "速度"
+      ]
     },
     {
       "uuid": "5",
@@ -382,7 +398,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "迷雾重重",
       "updateTime": "2024-09-17T12:20:00Z",
-      "tags": ["悬疑", "侦探", "推理"]
+      "tags": [
+        "悬疑",
+        "侦探",
+        "推理"
+      ]
     },
     {
       "uuid": "6",
@@ -390,7 +410,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "奇幻之旅",
       "updateTime": "2024-09-17T13:30:00Z",
-      "tags": ["角色扮演", "奇幻", "冒险"]
+      "tags": [
+        "角色扮演",
+        "奇幻",
+        "冒险"
+      ]
     },
     {
       "uuid": "7",
@@ -398,7 +422,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "文明的足迹",
       "updateTime": "2024-09-18T10:00:00Z",
-      "tags": ["历史", "纪录片", "文明"]
+      "tags": [
+        "历史",
+        "纪录片",
+        "文明"
+      ]
     },
     {
       "uuid": "8",
@@ -406,7 +434,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "商业大亨",
       "updateTime": "2024-09-18T11:00:00Z",
-      "tags": ["模拟", "经营", "策略"]
+      "tags": [
+        "模拟",
+        "经营",
+        "策略"
+      ]
     },
     {
       "uuid": "9",
@@ -414,7 +446,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "人性之光",
       "updateTime": "2024-09-18T12:00:00Z",
-      "tags": ["剧情", "人性", "思考"]
+      "tags": [
+        "剧情",
+        "人性",
+        "思考"
+      ]
     },
     {
       "uuid": "10",
@@ -422,7 +458,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "谜题世界",
       "updateTime": "2024-09-18T13:00:00Z",
-      "tags": ["解谜", "冒险", "创意"]
+      "tags": [
+        "解谜",
+        "冒险",
+        "创意"
+      ]
     },
     {
       "uuid": "11",
@@ -430,7 +470,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "欢乐时光",
       "updateTime": "2024-09-18T14:00:00Z",
-      "tags": ["喜剧", "搞笑", "轻松"]
+      "tags": [
+        "喜剧",
+        "搞笑",
+        "轻松"
+      ]
     },
     {
       "uuid": "12",
@@ -438,7 +482,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "闪电侠",
       "updateTime": "2024-09-18T15:00:00Z",
-      "tags": ["动作", "反应", "挑战"]
+      "tags": [
+        "动作",
+        "反应",
+        "挑战"
+      ]
     },
     {
       "uuid": "13",
@@ -446,7 +494,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "宇宙探秘",
       "updateTime": "2024-09-18T16:00:00Z",
-      "tags": ["科教", "宇宙", "探索"]
+      "tags": [
+        "科教",
+        "宇宙",
+        "探索"
+      ]
     },
     {
       "uuid": "14",
@@ -454,7 +506,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "欢乐农场",
       "updateTime": "2024-09-18T17:00:00Z",
-      "tags": ["模拟", "农场", "休闲"]
+      "tags": [
+        "模拟",
+        "农场",
+        "休闲"
+      ]
     },
     {
       "uuid": "15",
@@ -462,7 +518,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "舞台梦想",
       "updateTime": "2024-09-18T18:00:00Z",
-      "tags": ["音乐", "舞台", "梦想"]
+      "tags": [
+        "音乐",
+        "舞台",
+        "梦想"
+      ]
     },
     {
       "uuid": "16",
@@ -470,7 +530,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "智力大师",
       "updateTime": "2024-09-18T19:00:00Z",
-      "tags": ["益智", "智力", "挑战"]
+      "tags": [
+        "益智",
+        "智力",
+        "挑战"
+      ]
     },
     {
       "uuid": "17",
@@ -478,7 +542,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "地球之美",
       "updateTime": "2024-09-18T20:00:00Z",
-      "tags": ["纪录片", "自然", "地理"]
+      "tags": [
+        "纪录片",
+        "自然",
+        "地理"
+      ]
     },
     {
       "uuid": "18",
@@ -486,7 +554,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "城市建设者",
       "updateTime": "2024-09-18T21:00:00Z",
-      "tags": ["模拟", "城市", "建设"]
+      "tags": [
+        "模拟",
+        "城市",
+        "建设"
+      ]
     },
     {
       "uuid": "19",
@@ -494,7 +566,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "社会镜像",
       "updateTime": "2024-09-18T22:00:00Z",
-      "tags": ["现实", "社会", "思考"]
+      "tags": [
+        "现实",
+        "社会",
+        "思考"
+      ]
     },
     {
       "uuid": "20",
@@ -502,7 +578,11 @@
       "image": "https://picsum.photos/220/140",
       "title": "创造世界",
       "updateTime": "2024-09-18T23:00:00Z",
-      "tags": ["创造", "虚拟", "自由"]
+      "tags": [
+        "创造",
+        "虚拟",
+        "自由"
+      ]
     }
   ],
   "top": [
