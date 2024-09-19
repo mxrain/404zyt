@@ -44,7 +44,7 @@ export default function HomePage() {
       <TabComponent />
       <div className={styles.header}>
         <button onClick={handleRefresh} disabled={loading} className={styles.refreshButton}>
-          <RefreshCw className={styles.refreshIcon} /> 重新加载
+          <RefreshCw className={styles.refreshIcon} /> 重新加载123
         </button>
       </div>
       <div className={styles.grid}>
