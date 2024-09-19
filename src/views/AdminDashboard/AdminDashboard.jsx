@@ -1,14 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 import { logout } from '../../features/auth/authSlice';
 import styles from './AdminDashboard.module.css';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import Breadcrumb from './components/Breadcrumb/Breadcrumb';
+import TabNav from './components/TabNav/TabNav';
 
 const AdminDashboard = () => {
-    const { githubApi, owner, repo } = useSelector(state => state.auth);
+    const { user } = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
 
     const handleLogout = () => {
         dispatch(logout());
@@ -17,18 +20,15 @@ const AdminDashboard = () => {
 
     return (
         <div className={styles.dashboardContainer}>
-            <h1>管理面板</h1>
-            <div className={styles.infoSection}>
-                <p>GitHub API: {githubApi ? '已设置' : '未设置'}</p>
-                <p>仓库所有者: {owner}</p>
-                <p>仓库名称: {repo}</p>
-            </div>
-            <div className={styles.actionSection}>
-                <button onClick={handleLogout} className={styles.logoutButton}>
-                    退出登录
-                </button>
-            </div>
-            {/* 这里可以添加其他管理功能 */}
+            <Sidebar />
+            <main className={styles.mainContent}>
+                <Header userName={user?.name} onLogout={handleLogout} />
+                <div className={styles.pageContent}>
+                    <Breadcrumb />
+                    <TabNav />
+                    <Outlet />
+                </div>
+            </main>
         </div>
     );
 };

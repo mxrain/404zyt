@@ -11,6 +11,10 @@ import AdminDashboard from './views/AdminDashboard/AdminDashboard';
 import Login from './views/Login/Login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import PeriodicVerification from './components/PeriodicVerification/PeriodicVerification';
+// 导入管理后台子页面
+import Overview from './views/AdminDashboard/components/Overview/Overview';
+import Settings from './views/AdminDashboard/components/Settings/Settings';
+import Users from './views/AdminDashboard/components/Users/Users';
 
 function App() {
   return (
@@ -23,7 +27,14 @@ function App() {
             <ProtectedRoute>
               <AdminDashboard />
             </ProtectedRoute>
-          } />
+          }>
+            <Route index element={<Overview />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="users" element={<Users />} />
+            <Route path="products" element={<h1>产品页面</h1>} />
+            <Route path="analytics" element={<h1>分析页面</h1>} />
+          </Route>
+          
           <Route path="/login" element={<Login />} />
 
           {/* 其他路由 - 包含 Header */}
