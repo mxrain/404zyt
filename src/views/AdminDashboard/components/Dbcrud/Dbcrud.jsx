@@ -161,7 +161,7 @@ const CRUDTable = () => {
 
   useEffect(() => {
     fetchData();
-  }, [owner, repo]);
+  }, [fetchData]);
 
   const handleEdit = (path, newData) => {
     setData(prevData => {
@@ -250,7 +250,8 @@ const CRUDTable = () => {
         {
           message: 'Update db.json via admin dashboard',
           content: encodedContent,
-          sha: sha
+          sha: sha,
+          branch: 'master'  // 指定提交到 master 分支
         },
         {
           headers: {
@@ -261,7 +262,7 @@ const CRUDTable = () => {
       );
 
       console.log('File updated successfully:', response.data);
-      alert('数据已成功保存到 GitHub');
+      alert('数据已成功保存到 GitHub 的 master 分支');
     } catch (error) {
       if (error.response && error.response.status === 409) {
         alert('保存失败：文件已被其他人修改。请刷新页面获取最新内容后再试。');
@@ -275,7 +276,7 @@ const CRUDTable = () => {
   const getLatestFileContent = async () => {
     try {
       const response = await axios.get(
-        `https://api.github.com/repos/${owner}/${repo}/contents/src/db/db.json`,
+        `https://api.github.com/repos/${owner}/${repo}/contents/src/db/db.json?ref=master`,  // 指定从 master 分支获取内容
         {
           headers: {
             Authorization: `token ${githubApi}`
