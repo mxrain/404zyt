@@ -1,3 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
+# https://4040000.xyz/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://4040000.xyz/sitemap.xml
