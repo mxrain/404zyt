@@ -1,0 +1,17 @@
+.breadcrumbWrapper {
+  margin-bottom: 10px;
+  min-height: 30px; /* 设置最小高度 */
+  display: flex;
+  align-items: center;
+}
+/* a标签取消下划线 */
+.breadcrumbWrapper a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/* a标签激活状态 */
+.breadcrumbWrapper a.active {
+  color: #fff;
+  background-color: #007bff;
+}

@@ -1,41 +1,29 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeTab, setActiveTab } from '../../../../features/sysTabs/tabSlice'
-import { Link } from 'react-router-dom'
+import { removeTab, setActiveTab, setActiveTabTitle } from '../../../../features/sysTabs/tabSlice'
+import { Link, useNavigate } from 'react-router-dom'
 import { X } from 'lucide-react'
-
-const TabNavWrapper = styled.div`
-  display: flex;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
-`
-
-const Tab = styled(Link)`
-  padding: 10px 20px;
-  border: 1px solid #ddd;
-  border-bottom: none;
-  margin-right: 5px;
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  align-items: center;
-
-  &.active {
-    background-color: #f0f0f0;
-  }
-
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 5px;
-  }
-`
+import styles from './TabNav.module.css'
 
 export default function TabNav() {
   const { tabs, activeTab } = useSelector((state) => state.tabs)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (tabs.length === 0) {
+      navigate('/sys')
+    }
+  }, [tabs, navigate])
+
+  useEffect(() => {
+    const savedActiveTab = localStorage.getItem('activeTab')
+    const savedActiveTabTitle = localStorage.getItem('activeTabTitle')
+    if (savedActiveTab && savedActiveTabTitle) {
+      dispatch(setActiveTab(savedActiveTab))
+      dispatch(setActiveTabTitle(savedActiveTabTitle))
+    }
+  }, [dispatch])
 
   const handleCloseTab = (e, path) => {
     e.preventDefault()
@@ -43,21 +31,30 @@ export default function TabNav() {
     dispatch(removeTab(path))
   }
 
+  const handleSetActiveTab = (path, title) => {
+    dispatch(setActiveTab(path))
+    dispatch(setActiveTabTitle(title))
+  }
+
   return (
-    <TabNavWrapper>
-      {tabs.map((tab) => (
-        <Tab
-          key={tab.path}
-          to={tab.path}
-          className={tab.path === activeTab ? 'active' : ''}
-          onClick={() => dispatch(setActiveTab(tab.path))}
-        >
-          {tab.title}
-          <button onClick={(e) => handleCloseTab(e, tab.path)}>
-            <X size={14} />
-          </button>
-        </Tab>
-      ))}
-    </TabNavWrapper>
+    <div className={styles.tabNavWrapper}>
+      {tabs.length === 0 ? (
+        <div style={{ minHeight: '41px' }}></div> // 空的占位 div
+      ) : (
+        tabs.map((tab) => (
+          <Link
+            key={tab.path}
+            to={tab.path}
+            className={`${styles.tab} ${tab.path === activeTab ? styles.active : ''}`}
+            onClick={() => handleSetActiveTab(tab.path, tab.title)}
+          >
+            {tab.title}
+            <button className={styles.closeButton} onClick={(e) => handleCloseTab(e, tab.path)}>
+              <X size={14} />
+            </button>
+          </Link>
+        ))
+      )}
+    </div>
   )
 }

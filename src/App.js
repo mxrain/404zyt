@@ -15,7 +15,7 @@ import PeriodicVerification from './components/PeriodicVerification/PeriodicVeri
 import Overview from './views/AdminDashboard/components/Overview/Overview';
 import Settings from './views/AdminDashboard/components/Settings/Settings';
 import Users from './views/AdminDashboard/components/Users/Users';
-
+import Dbcrud from './views/AdminDashboard/components/Dbcrud/Dbcrud';
 function App() {
   return (
     <ErrorBoundary>
@@ -31,6 +31,7 @@ function App() {
             <Route index element={<Overview />} />
             <Route path="/sys/settings" element={<Settings />} />
             <Route path="/sys/users" element={<Users />} />
+            <Route path="/sys/dbcrud" element={<Dbcrud />} />
             <Route path="/sys/products" element={<h1>产品页面</h1>} />
             <Route path="/sys/analytics" element={<h1>分析页面</h1>} />
           </Route>

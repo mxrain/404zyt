@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom'
-
-const BreadcrumbWrapper = styled.div`
-  margin-bottom: 20px;
-`
+import styles from './Breadcrumb.module.css'
 
 const BreadcrumbLink = styled(Link)`
   color: #007bff;
@@ -17,23 +14,28 @@ const BreadcrumbLink = styled(Link)`
 
 export default function Breadcrumb() {
   const location = useLocation()
-  const pathnames = location.pathname.split('/').filter((x) => x)
+  const pathnames = location.pathname.split('/').filter((x) => x && x !== 'sys')
+
+  // 如果路径是 "/sys"，则不显示面包屑
+  if (location.pathname === '/sys') {
+    return <div className={styles.breadcrumbWrapper}></div>
+  }
 
   return (
-    <BreadcrumbWrapper>
-      <BreadcrumbLink to="/">Home</BreadcrumbLink>
+    <div className={styles.breadcrumbWrapper}>
+      <BreadcrumbLink to="/sys">首页</BreadcrumbLink>
       {pathnames.map((name, index) => {
-        const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`
+        const routeTo = `/sys/${pathnames.slice(0, index + 1).join('/')}`
         const isLast = index === pathnames.length - 1
         return isLast ? (
-          <span key={name}> / {name}</span>
+          <span key={name} className={styles.breadcrumbItem}> / {name}</span>
         ) : (
-          <span key={name}>
+          <span key={name} className={styles.breadcrumbItem}>
             {' '}
             / <BreadcrumbLink to={routeTo}>{name}</BreadcrumbLink>
           </span>
         )
       })}
-    </BreadcrumbWrapper>
+    </div>
   )
 }

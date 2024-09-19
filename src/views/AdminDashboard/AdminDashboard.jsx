@@ -6,7 +6,6 @@ import styles from './AdminDashboard.module.css';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Breadcrumb from './components/Breadcrumb/Breadcrumb';
-import TabNav from './components/TabNav/TabNav';
 
 const AdminDashboard = () => {
     const { user } = useSelector(state => state.auth);
@@ -25,7 +24,6 @@ const AdminDashboard = () => {
                 <Header userName={user?.name} onLogout={handleLogout} />
                 <div className={styles.pageContent}>
                     <Breadcrumb />
-                    <TabNav />
                     <Outlet />
                 </div>
             </main>
