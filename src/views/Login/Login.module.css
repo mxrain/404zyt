@@ -6,14 +6,63 @@
   background-color: #f0f2f5;
 }
 
-.loginForm {
-  width: 300px;
-  padding: 20px;
-  background: white;
+.loginBox {
+  background-color: white;
+  padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-.loginFormButton {
+.loginTitle {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.inputGroup input {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.loginButton {
+  background-color: #222222;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.loginButton:hover {
+  background-color: #2f2f2f;
+}
+
+.errorMessage {
+  color: #ff4d4f;
+  text-align: center;
+  margin-top: 16px;
 }

@@ -1,35 +1,39 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectGithubInfo, setGithubInfo, fetchUserData } from '../../features/githubApi/githubApiSlice';
-import { getAuthCookie } from '../../utils/auth';
+import { logout } from '../../features/auth/authSlice';
+import styles from './AdminDashboard.module.css';
 
 const AdminDashboard = () => {
-    const { githubApi, githubUsername, repoUrl } = useSelector(selectGithubInfo);
+    const { isAuthenticated, githubApi, owner, repo } = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const authData = getAuthCookie();
-        if (!authData) {
+        if (!isAuthenticated) { 
             navigate('/login');
-            return;
         }
+    }, [isAuthenticated, navigate]);
 
-        if (!githubApi || !githubUsername || !repoUrl) {
-            dispatch(setGithubInfo(authData));
-        }
-
-        dispatch(fetchUserData());
-    }, [dispatch, navigate, githubApi, githubUsername, repoUrl]);
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate('/login');
+    };
 
     return (
-        <div>
+        <div className={styles.dashboardContainer}>
             <h1>管理面板</h1>
-            <p>GitHub API: {githubApi ? '已设置' : '未设置'}</p>
-            <p>GitHub 用户名: {githubUsername}</p>
-            <p>仓库地址: {repoUrl}</p>
-            {/* 其他管理面板内容 */}
+            <div className={styles.infoSection}>
+                <p>GitHub API: {githubApi ? '已设置' : '未设置'}</p>
+                <p>仓库所有者: {owner}</p>
+                <p>仓库名称: {repo}</p>
+            </div>
+            <div className={styles.actionSection}>
+                <button onClick={handleLogout} className={styles.logoutButton}>
+                    退出登录
+                </button>
+            </div>
+            {/* 这里可以添加其他管理功能 */}
         </div>
     );
 };
