@@ -13,33 +13,7 @@
         },
         "电影": {
           "icon": "path_d_value_here",
-          "link": "/movie/",
-          "items": {
-            "科幻电影": {
-              "icon": "path_d_value_here",
-              "link": "/science-fiction-movie/"
-            },
-            "悬疑电影": {
-              "icon": "path_d_value_here",
-              "link": "/mystery-movie/"
-            },
-            "动作电影": {
-              "icon": "path_d_value_here",
-              "link": "/action-movie/"
-            },
-            "喜剧电影": {
-              "icon": "path_d_value_here",
-              "link": "/comedy-movie/"
-            },
-            "爱情电影": {
-              "icon": "path_d_value_here",
-              "link": "/romantic-movie/"
-            },
-            "恐怖电影": {
-              "icon": "path_d_value_here",
-              "link": "/horror-movie/"
-            }
-          }
+          "link": "/movie/"
         },
         "电视剧": {
           "icon": "path_d_value_here",
