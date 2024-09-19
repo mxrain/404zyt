@@ -1,19 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../features/auth/authSlice';
 import styles from './AdminDashboard.module.css';
 
 const AdminDashboard = () => {
-    const { isAuthenticated, githubApi, owner, repo } = useSelector(state => state.auth);
+    const { githubApi, owner, repo } = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!isAuthenticated) { 
-            navigate('/login');
-        }
-    }, [isAuthenticated, navigate]);
 
     const handleLogout = () => {
         dispatch(logout());
