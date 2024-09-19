@@ -38,15 +38,15 @@ export default function Sidebar() {
 
   return (
     <SidebarWrapper>
-      <SidebarLink to="/users" onClick={() => handleClick('/users', 'Users')}>
+      <SidebarLink to="/sys/users" onClick={() => handleClick('/sys/users', 'Users')}>
         <Users size={18} />
         Users
       </SidebarLink>
-      <SidebarLink to="/products" onClick={() => handleClick('/products', 'Products')}>
+      <SidebarLink to="/sys/products" onClick={() => handleClick('/sys/products', 'Products')}>
         <ShoppingBag size={18} />
         Products
       </SidebarLink>
-      <SidebarLink to="/analytics" onClick={() => handleClick('/analytics', 'Analytics')}>
+      <SidebarLink to="/sys/analytics" onClick={() => handleClick('/sys/analytics', 'Analytics')}>
         <BarChart size={18} />
         Analytics
       </SidebarLink>
