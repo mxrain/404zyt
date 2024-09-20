@@ -777,11 +777,6 @@
       "uuid": "6",
       "imageUrl": "https://picsum.photos/220/140",
       "altText": "轮播图片 6"
-    },
-    {
-      "uuid": "7",
-      "imageUrl": "https://picsum.photos/220/140",
-      "altText": "7"
     }
   ]
 }
