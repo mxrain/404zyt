@@ -1,22 +1,5 @@
 {
-  "recommend": [
-    {
-      "uuid": "1",
-      "name": "å ä½",
-      "description": "å ä½æè¡",
-      "size": "3.8GB",
-      "img": "https://picsum.photos/220/140",
-      "updatetime": "2024-10-04T15:30:00Z"
-    },
-    {
-      "uuid": "1726812371475",
-      "name": "123",
-      "description": "132",
-      "size": "123",
-      "img": "https://picsum.photos/220/140",
-      "updatetime": "2222-02-22T22:22"
-    }
-  ],
+  "recommend": [],
   "hot": [
     {
       "uuid": "1",
