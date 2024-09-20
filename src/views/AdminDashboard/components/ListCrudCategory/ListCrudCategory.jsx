@@ -78,19 +78,10 @@ export default function ListCrudCategory() {
     setIsLoading(true);
     setError(null);
     try {
-      // 获取最新的文件内容和 SHA
-      const { sha, content: currentContent } = await getLatestFileContent();
-
-      // 比较当前内容和要保存的内容
-      const updatedListData = { ...JSON.parse(currentContent), [category]: data };
+      const { sha, content: existingContent } = await getLatestFileContent();
+      const existingData = JSON.parse(existingContent);
+      const updatedListData = { ...existingData, [category]: data };
       const newContent = JSON.stringify(updatedListData, null, 2);
-      
-      if (currentContent === newContent) {
-        alert('没有变更需要保存');
-        setIsLoading(false);
-        return;
-      }
-
       const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
 
       const response = await axios.put(
@@ -99,7 +90,7 @@ export default function ListCrudCategory() {
           message: `更新 ${category} 列表`,
           content: encodedContent,
           sha: sha,
-          branch: 'master'  // 指定提交到 master 分支
+          branch: 'master'
         },
         {
           headers: {
@@ -109,15 +100,10 @@ export default function ListCrudCategory() {
         }
       );
 
-      console.log('文件更新成功:', response.data);
-      alert('数据已成功保存到GitHub的master分支');
+      alert('数据已成功保存到GitHub');
     } catch (error) {
-      if (error.response && error.response.status === 409) {
-        setError('保存失败：文件已被其他人修改。请刷新页面获取最新内容后再试。');
-      } else {
-        console.error('保存数据时出错:', error);
-        setError('保存数据失败，请稍后重试。');
-      }
+      console.error('保存数据时出错:', error);
+      setError('保存数据失败，请稍后重试。');
     } finally {
       setIsLoading(false);
     }
@@ -133,7 +119,8 @@ export default function ListCrudCategory() {
           }
         }
       );
-      const content = atob(response.data.content);
+      // 修改这一行
+      const content = decodeURIComponent(escape(atob(response.data.content)));
       return { sha: response.data.sha, content };
     } catch (error) {
       console.error('获取最新文件内容时出错:', error);
