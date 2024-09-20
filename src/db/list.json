@@ -204,29 +204,9 @@
   ],
   "carousel": [
     {
-      "uuid": "1",
+      "uuid": "1726804418707",
       "imageUrl": "https://picsum.photos/220/140",
-      "altText": "轮播图片 1"
-    },
-    {
-      "uuid": "2",
-      "imageUrl": "https://picsum.photos/220/140",
-      "altText": "轮播图片 2"
-    },
-    {
-      "uuid": "3",
-      "imageUrl": "https://picsum.photos/220/140",
-      "altText": "轮播图片 3"
-    },
-    {
-      "uuid": "4",
-      "imageUrl": "https://picsum.photos/220/140",
-      "altText": "轮播图片 4"
-    },
-    {
-      "imageUrl": "“5”",
-      "altText": "https://picsum.photos/220/140",
-      "uuid": "l"
+      "altText": "委屈委屈为"
     }
   ]
 }
