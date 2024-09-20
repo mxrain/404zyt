@@ -64,16 +64,7 @@
           "单机游戏": {
             "icon": "path_d_value_here",
             "link": "/single-player-game/",
-            "items": {
-              "角色扮演": {
-                "icon": "path_d_value_here",
-                "link": "/role-playing-game/"
-              },
-              "动作冒险": {
-                "icon": "path_d_value_here",
-                "link": "/action-adventure-game/"
-              }
-            }
+            "items": {}
           },
           "网络游戏": {
             "icon": "path_d_value_here",
@@ -98,16 +89,7 @@
       "小说": {
         "icon": "path_d_value_here",
         "link": "/novel-ebook/",
-        "items": {
-          "科幻小说": {
-            "icon": "path_d_value_here",
-            "link": "/science-fiction-novel/"
-          },
-          "悬疑小说": {
-            "icon": "path_d_value_here",
-            "link": "/mystery-novel/"
-          }
-        }
+        "items": {}
       },
       "教材": {
         "icon": "path_d_value_here",
