@@ -11,6 +11,11 @@ const LatestResourceCard = ({ title, items }) => {
         navigate(`/detail/${item.id}`);
     };
 
+    const truncateTitle = (text, maxLength) => {
+        if (text.length <= maxLength) return text;
+        return text.slice(0, maxLength) + '.';
+    };
+
     return (
         <div className={styles.card}>
             <h2>{title}</h2>
@@ -22,7 +27,7 @@ const LatestResourceCard = ({ title, items }) => {
                             <div className={styles.title}>{item.title}</div>
                             <div className={styles.tags}>
                                 {item.tags.map((tag, tagIndex) => (
-                                    <span key={tagIndex} className={styles.tag}>{tag}</span>
+                                    <span key={tagIndex} className={styles.tag}>{truncateTitle(tag, 8)}</span>
                                 ))}
                             </div>
                             <p className={styles.updateTime}>

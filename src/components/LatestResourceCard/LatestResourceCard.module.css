@@ -34,7 +34,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 80px;
+    height: 80px; /* 保持固定高度 */
+    width: auto; 
     margin: 5px 0 0 0;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -73,6 +74,7 @@
     /* 向右移动 */
     /* transform: scale(1.1); */
     font-size: 20px;
+    width: calc(100% - 30px); /* 添加这行，为箭头图标留出空间 */
 }
 
 .item:hover .tags {
@@ -105,12 +107,17 @@
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     height: 100%;
+    width: 100%; /* 确保内容宽度为100% */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden; /* 添加这行 */
+    box-sizing: border-box; /* 添加这行 */
 }
 
 .title {
+    position: absolute;
+
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 4px;
@@ -118,15 +125,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     transition: all 0.2s ease;
+    width: 100%;
 }
-
-
 
 .tags {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 25px;
     margin-bottom: 4px;
     transition: all 0.3s ease;
+    overflow: hidden; /* 添加这行 */
 }
 
 .tag {
@@ -143,6 +151,9 @@
     font-size: 10px;
     opacity: 0.8;
     margin-top: auto;
+    white-space: nowrap; /* 添加这行 */
+    overflow: hidden; /* 添加这行 */
+    text-overflow: ellipsis; /* 添加这行 */
 }
 
 @media (max-width: 870px) {
