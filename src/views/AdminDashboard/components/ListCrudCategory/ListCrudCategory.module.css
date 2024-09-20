@@ -239,3 +239,14 @@
       border-radius: 0;
     }
   }
+  
+  .confirmDialog {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .confirmDialog p {
+    margin-bottom: 20px;
+  }

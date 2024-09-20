@@ -16,6 +16,8 @@ export default function ListCrudCategory() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { githubApi, owner, repo } = useSelector(state => state.auth);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
 
   const fetchData = useCallback(async () => {
     setIsLoading(true);
@@ -60,32 +62,82 @@ export default function ListCrudCategory() {
   };
 
   const handleDelete = (id) => {
-    if (window.confirm('确定要删除这个项目吗？')) {
+    setItemToDelete(id);
+    setShowConfirmDialog(true);
+  };
 
-      setData(data.filter(item => item[listConfig[category].fields.find(field => !field.editable).name] !== id)); // 删除项目
+  const confirmDelete = () => {
+    if (itemToDelete) {
+      setData(data.filter(item => item[listConfig[category].fields.find(field => !field.editable).name] !== itemToDelete));
+      setItemToDelete(null);
     }
+    setShowConfirmDialog(false);
   };
 
   const handleSubmit = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const listData = await axios.get(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/list.json`);
-      const updatedListData = { ...listData.data, [category]: data }; 
-      await githubApi.updateFile(
-        owner,
-        repo,
-        'src/db/list.json',
-        JSON.stringify(updatedListData, null, 2),
-        `更新 ${category} 列表`,
-        listData.data.sha
+      // 获取最新的文件内容和 SHA
+      const { sha, content: currentContent } = await getLatestFileContent();
+
+      // 比较当前内容和要保存的内容
+      const updatedListData = { ...JSON.parse(currentContent), [category]: data };
+      const newContent = JSON.stringify(updatedListData, null, 2);
+      
+      if (currentContent === newContent) {
+        alert('没有变更需要保存');
+        setIsLoading(false);
+        return;
+      }
+
+      const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
+
+      const response = await axios.put(
+        `https://api.github.com/repos/${owner}/${repo}/contents/src/db/list.json`,
+        {
+          message: `更新 ${category} 列表`,
+          content: encodedContent,
+          sha: sha,
+          branch: 'master'  // 指定提交到 master 分支
+        },
+        {
+          headers: {
+            Authorization: `token ${githubApi}`,
+            'Content-Type': 'application/json'
+          }
+        }
       );
-      alert('数据已成功保存到GitHub');
+
+      console.log('文件更新成功:', response.data);
+      alert('数据已成功保存到GitHub的master分支');
     } catch (error) {
-      console.error('保存数据时出错:', error);
-      setError('保存数据失败，请稍后重试。');
+      if (error.response && error.response.status === 409) {
+        setError('保存失败：文件已被其他人修改。请刷新页面获取最新内容后再试。');
+      } else {
+        console.error('保存数据时出错:', error);
+        setError('保存数据失败，请稍后重试。');
+      }
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const getLatestFileContent = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.github.com/repos/${owner}/${repo}/contents/src/db/list.json?ref=master`,
+        {
+          headers: {
+            Authorization: `token ${githubApi}`
+          }
+        }
+      );
+      const content = atob(response.data.content);
+      return { sha: response.data.sha, content };
+    } catch (error) {
+      console.error('获取最新文件内容时出错:', error);
+      throw error;
     }
   };
 
@@ -203,6 +255,17 @@ export default function ListCrudCategory() {
               <button type="button" className={styles.cancelButton} onClick={() => setShowAddForm(false)}>取消</button>
             </div>
           </form>
+        </div>
+      )}
+      {showConfirmDialog && (
+        <div className={styles.formOverlay}>
+          <div className={styles.confirmDialog}>
+            <p>确定要删除这个项目吗？</p>
+            <div className={styles.formButtons}>
+              <button onClick={confirmDelete} className={styles.deleteButton}>确定</button>
+              <button onClick={() => setShowConfirmDialog(false)} className={styles.cancelButton}>取消</button>
+            </div>
+          </div>
         </div>
       )}
     </div>
