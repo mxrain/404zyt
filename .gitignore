@@ -24,4 +24,3 @@ yarn-error.log*
 
 /src/db/db.json
 /src/db/list.json
-/src/db/zyt/*
