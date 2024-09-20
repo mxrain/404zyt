@@ -91,9 +91,7 @@ export default function ListCrudCategory() {
         return;
       }
 
-      // 使用 TextEncoder 来正确处理 UTF-8 编码
-      const encoder = new TextEncoder();
-      const encodedContent = btoa(String.fromCharCode.apply(null, encoder.encode(newContent)));
+      const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
 
       const response = await axios.put(
         `https://api.github.com/repos/${owner}/${repo}/contents/src/db/list.json`,
@@ -135,9 +133,7 @@ export default function ListCrudCategory() {
           }
         }
       );
-      // 使用 TextDecoder 来正确解码 UTF-8 内容
-      const decoder = new TextDecoder('utf-8');
-      const content = decoder.decode(Uint8Array.from(atob(response.data.content), c => c.charCodeAt(0)));
+      const content = atob(response.data.content);
       return { sha: response.data.sha, content };
     } catch (error) {
       console.error('获取最新文件内容时出错:', error);
@@ -182,7 +178,7 @@ export default function ListCrudCategory() {
       return (
         <tr key={id}>
           {listConfig[category].fields.map(field => (
-            <td key={field.name} data-full-content={item[field.name]}>
+            <td key={field.name}>
               {isEditing
                 ? renderFormField(field, editingItem, (updatedItem) => setEditingItem(updatedItem), true)
                 : field.type === 'image'
