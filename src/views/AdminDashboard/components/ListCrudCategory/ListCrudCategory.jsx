@@ -84,7 +84,7 @@ export default function ListCrudCategory() {
       const newContent = JSON.stringify(updatedListData, null, 2);
       const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
 
-      const response = await axios.put(
+      await axios.put(
         `https://api.github.com/repos/${owner}/${repo}/contents/src/db/list.json`,
         {
           message: `更新 ${category} 列表`,

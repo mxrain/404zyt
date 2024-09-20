@@ -1,100 +1,76 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addTab } from '../../../../features/sysTabs/tabSlice'
-import { Users, ShoppingBag, BarChart, Database, ChevronDown, ChevronRight } from 'lucide-react'
-
-const SidebarWrapper = styled.nav`
-  width: 200px;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-`
-
-const SidebarLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  margin-bottom: 10px;
-
-  &:hover {
-    background-color: #444;
-  }
-
-  svg {
-    margin-right: 10px;
-  }
-`
-
-const ExpandableLink = styled(SidebarLink)`
-  justify-content: space-between;
-`
-
-const SubLinksContainer = styled.div`
-  overflow: hidden;
-  max-height: ${props => (props.isOpen ? '1000px' : '0')};
-  transition: max-height 0.3s ease-in-out;
-`
-
-const SubLink = styled(SidebarLink)`
-  padding-left: 30px;
-  font-size: 0.9em;
-`
+import { FilePlus,Users, ShoppingBag, BarChart, Database, ChevronDown, ChevronRight } from 'lucide-react'
+import styles from './Sidebar.module.css'
 
 export default function Sidebar() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [isListCrudOpen, setIsListCrudOpen] = useState(false)
 
   const handleClick = (path, title) => {
     dispatch(addTab({ path, title }))
   }
 
+  const handleListCrudClick = () => {
+    setIsListCrudOpen(!isListCrudOpen)
+    navigate('/sys/listcrud')
+    dispatch(addTab({ path: '/sys/listcrud', title: '首页列表' }))
+  }
+
   return (
-    <SidebarWrapper>
-      <h1 style={{ fontSize: '40px', marginBottom: '20px', paddingLeft: '10px' }}>管理面板</h1>
-      <SidebarLink to="/sys/users" onClick={() => handleClick('/sys/users', '用户')}>
-        <Users size={18} />
-        用户
-      </SidebarLink>
-      <SidebarLink to="/sys/dbcrud" onClick={() => handleClick('/sys/dbcrud', '分类')}>
+    <nav className={styles.sidebarWrapper}>
+      {/* 插入图标 */}
+
+      <h1 className={styles.title}>
+        404后台
+      </h1>
+      <Link to="/sys/addReasourcePage" className={styles.sidebarLink} onClick={() => handleClick('/sys/addReasourcePage', '数据上传')}>
+        <FilePlus size={18} />
+        数据上传
+      </Link>
+      <Link to="/sys/dbcrud" className={styles.sidebarLink} onClick={() => handleClick('/sys/dbcrud', '分类')}>
         <Database size={18} />
         分类
-      </SidebarLink>
-      <ExpandableLink as="div" onClick={() => setIsListCrudOpen(!isListCrudOpen)}>
+      </Link>
+      <div className={`${styles.sidebarLink} ${styles.expandableLink}`} onClick={handleListCrudClick}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Database size={18} />
-          首页4大列表
+          首页列表
         </div>
         {isListCrudOpen ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
-      </ExpandableLink>
-      <SubLinksContainer isOpen={isListCrudOpen}>
-        <SubLink to="/sys/listcrud/recommend" onClick={() => handleClick('/sys/listcrud/recommend', '推荐')}>
+      </div>
+      <div className={styles.subLinksContainer} style={{ maxHeight: isListCrudOpen ? '1000px' : '0' }}>
+        <Link to="/sys/listcrud/recommend" className={`${styles.sidebarLink} ${styles.subLink}`} onClick={() => handleClick('/sys/listcrud/recommend', '推荐')}>
           推荐
-        </SubLink>
-        <SubLink to="/sys/listcrud/hot" onClick={() => handleClick('/sys/listcrud/hot', '热门')}>
+        </Link>
+        <Link to="/sys/listcrud/hot" className={`${styles.sidebarLink} ${styles.subLink}`} onClick={() => handleClick('/sys/listcrud/hot', '热门')}>
           热门
-        </SubLink>
-        <SubLink to="/sys/listcrud/latest" onClick={() => handleClick('/sys/listcrud/latest', '最新')}>
+        </Link>
+        <Link to="/sys/listcrud/latest" className={`${styles.sidebarLink} ${styles.subLink}`} onClick={() => handleClick('/sys/listcrud/latest', '最新')}>
           最新
-        </SubLink>
-        <SubLink to="/sys/listcrud/top" onClick={() => handleClick('/sys/listcrud/top', '置顶')}>
+        </Link>
+        <Link to="/sys/listcrud/top" className={`${styles.sidebarLink} ${styles.subLink}`} onClick={() => handleClick('/sys/listcrud/top', '置顶')}>
           置顶
-        </SubLink>
-        <SubLink to="/sys/listcrud/carousel" onClick={() => handleClick('/sys/listcrud/carousel', '轮播')}>
+        </Link>
+        <Link to="/sys/listcrud/carousel" className={`${styles.sidebarLink} ${styles.subLink}`} onClick={() => handleClick('/sys/listcrud/carousel', '轮播')}>
           轮播
-        </SubLink>
-      </SubLinksContainer>
-      <SidebarLink to="/sys/products" onClick={() => handleClick('/sys/products', 'Products')}>
+        </Link>
+      </div>
+      <Link to="/sys/products" className={styles.sidebarLink} onClick={() => handleClick('/sys/products', 'Products')}>
         <ShoppingBag size={18} />
         Products
-      </SidebarLink>
-      <SidebarLink to="/sys/analytics" onClick={() => handleClick('/sys/analytics', 'Analytics')}>
+      </Link>
+      <Link to="/sys/analytics" className={styles.sidebarLink} onClick={() => handleClick('/sys/analytics', 'Analytics')}>
         <BarChart size={18} />
         Analytics
-      </SidebarLink>
-    </SidebarWrapper>
+      </Link>
+      <Link to="/sys/users" className={styles.sidebarLink} onClick={() => handleClick('/sys/users', '用户')}>
+        <Users size={18} />
+        用户
+      </Link>
+    </nav>
   )
 }

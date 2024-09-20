@@ -8,7 +8,7 @@ function ListCrud() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>首页4大列表管理</h1>
+      <h1 className={styles.title}>首页表管理</h1>
       <nav className={styles.navigation}>
         {categories.map(category => (
           <Link key={category} to={`/sys/listcrud/${category}`} className={styles.categoryLink}>
