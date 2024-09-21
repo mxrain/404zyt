@@ -1,35 +1,68 @@
-
-
-.gridContainer {
-    display: grid;
-    /* 200px 是卡片宽度 1fr 是剩余空间 */
-    grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
-    gap: 20px;
-    padding: 80px 0px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.error {
-    color: #d32f2f;
-    text-align: center;
-    padding: 20px;
-    background-color: #ffebee;
-    border-radius: 8px;
-    margin: 20px 0;
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.empty {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 1.1em;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    margin: 20px 0;
+.select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+  font-size: 14px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 16px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.cardInfo {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.infoLabel {
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
-    .gridContainer {
-        grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
-        gap: 15px;
-    }
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }

@@ -6,8 +6,7 @@ import RecommendCard from '../../components/RecommendCard/RecommendCard';
 import LatestResourceCard from '../../components/LatestResourceCard/LatestResourceCard';
 import HotCard from '../../components/HotCard/HotCard';
 import CarouselCard from '../../components/CarouselCard/CarouselCard';
-import ResourceCardList from '../../components/ResourceCardList/ResourceCardList';
-import TestResourceCardList  from '../../components/testResourceCardList/TestResourceCardList';
+import ResourceCardList  from '../../components/ResourceCardList/ResourceCardList';
 const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
 
 export default function HomePage() {
@@ -19,7 +18,6 @@ export default function HomePage() {
     carousel: [],
   });
   const [loading, setLoading] = useState(false);
-  const [resourceData, setResourceData] = useState({});
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -28,9 +26,6 @@ export default function HomePage() {
       const listData = await listResponse.json();
       setData(listData);
 
-      const resourceResponse = await fetch(`${BASE_URL}/uuid_resource_curd.json`);
-      const resourceData = await resourceResponse.json();
-      setResourceData(resourceData);
     } catch (error) {
       console.error('获取数据时出错:', error);
     } finally {
@@ -63,8 +58,7 @@ export default function HomePage() {
         <HotCard title="最热资源" hot={data.hot} />
 
       </div>
-      <ResourceCardList title="资源列表" resources={resourceData} />
-      <TestResourceCardList title="资源列表" />
+      <ResourceCardList title="资源列表" />
     </div>
   );
 }
