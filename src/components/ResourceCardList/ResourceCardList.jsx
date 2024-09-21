@@ -1,30 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import ResourceCard from './ResourceCard/ResourceCard';
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-`;
-
-const Controls = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-`;
-
-const Select = styled.select`
-  padding: 8px;
-  border-radius: 4px;
-`;
-
-const CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-`;
+import styles from './ResourceCardList.module.css';
 
 function ResourceCardList() {
   const [resources, setResources] = useState([]);
@@ -43,7 +20,7 @@ function ResourceCardList() {
       setResources(resourceArray);
       setFilteredResources(resourceArray);
       
-      // 提取所有唯一的顶级分类
+
       const uniqueCategories = ['all', ...new Set(resourceArray.map(r => r.category.split('>')[0]))];
       setCategories(uniqueCategories);
     } catch (error) {
@@ -74,24 +51,24 @@ function ResourceCardList() {
   }, [category, sortOrder, resources]);
 
   return (
-    <Container>
-      <Controls>
-        <Select value={category} onChange={(e) => setCategory(e.target.value)}>
+    <div className={styles.container}>
+      <div className={styles.controls}>
+        <select className={styles.select} value={category} onChange={(e) => setCategory(e.target.value)}>
           {categories.map((cat) => (
             <option key={cat} value={cat}>{cat === 'all' ? '所有分类' : cat}</option>
           ))}
-        </Select>
-        <Select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+        </select>
+        <select className={styles.select} value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
           <option value="newest">最新优先</option>
           <option value="oldest">最早优先</option>
-        </Select>
-      </Controls>
-      <CardGrid>
+        </select>
+      </div>
+      <div className={styles.cardGrid}>
         {filteredResources.map((resource) => (
           <ResourceCard key={resource.id} resource={resource} />
         ))}
-      </CardGrid>
-    </Container>
+      </div>
+    </div>
   );
 }
 
