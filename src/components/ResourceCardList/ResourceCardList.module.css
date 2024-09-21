@@ -66,3 +66,42 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+
+.customSelect {
+  position: relative;
+  display: inline-block;
+}
+
+.customSelectSelected {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.customSelectOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.customSelectOption {
+  padding: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.customSelectOption:hover {
+  background-color: #f0f0f0;
+}
