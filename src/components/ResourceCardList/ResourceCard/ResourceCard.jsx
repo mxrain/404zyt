@@ -31,9 +31,9 @@ function ResourceCard({ resource }) {
         <img className={styles.cardImage} src={infoData.images[0]} alt={infoData.name} />
       )}
       <h3 className={styles.cardTitle}>{infoData.name}</h3>
-      <p className={styles.cardInfo}>{infoData.introduction.substring(0, 100)}...</p>
-      <p className={styles.cardInfo}>
-        <Clock size={16} /> 更新时间: {new Date(resource.updatetime * 1000).toLocaleDateString()}
+      <p className={styles.cardInfo}>{infoData.introduction.substring(0, 30)}...</p>
+      <p className={styles.timeBox}>
+        <Clock size={13}/> <span className='updateTimeFont'>更新时间: {new Date(resource.updatetime * 1000).toLocaleDateString()}</span>
       </p>
       <p className={styles.cardInfo}>
         <Grid size={16} /> {infoData.category}
