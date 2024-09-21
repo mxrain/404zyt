@@ -1,0 +1,35 @@
+
+
+.gridContainer {
+    display: grid;
+    /* 200px 是卡片宽度 1fr 是剩余空间 */
+    grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+    gap: 20px;
+    padding: 80px 0px;
+}
+
+.error {
+    color: #d32f2f;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffebee;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.1em;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+        gap: 15px;
+    }
+}

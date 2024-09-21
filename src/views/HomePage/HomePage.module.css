@@ -268,6 +268,12 @@
     .grid > *:nth-child(3) {
       grid-column: span 1;
     }
+    .grid > *:nth-child(4) {
+      grid-column: span 2;
+    }
+    .grid > *:nth-child(5) {
+      grid-column: span 2;
+    }
   }
 
   /* 中等屏幕 (≥768px 和 <1200px): 3列布局 */

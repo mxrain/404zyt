@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { RefreshCw } from 'lucide-react';
+// import { RefreshCw } from 'lucide-react';
 import styles from './HomePage.module.css';
 import TabComponent from '../../components/TabComponent/TabComponent';
 import RecommendCard from '../../components/RecommendCard/RecommendCard';
 import LatestResourceCard from '../../components/LatestResourceCard/LatestResourceCard';
 import HotCard from '../../components/HotCard/HotCard';
 import CarouselCard from '../../components/CarouselCard/CarouselCard';
+import ResourceCardList from '../../components/ResourceCardList/ResourceCardList';
 const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
 
 export default function HomePage() {
@@ -17,13 +18,18 @@ export default function HomePage() {
     carousel: [],
   });
   const [loading, setLoading] = useState(false);
+  const [resourceData, setResourceData] = useState({});
 
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${BASE_URL}/list.json`);
-      const listData = await response.json();
+      const listResponse = await fetch(`${BASE_URL}/list.json`);
+      const listData = await listResponse.json();
       setData(listData);
+
+      const resourceResponse = await fetch(`${BASE_URL}/uuid_resource_curd.json`);
+      const resourceData = await resourceResponse.json();
+      setResourceData(resourceData);
     } catch (error) {
       console.error('获取数据时出错:', error);
     } finally {
@@ -44,17 +50,19 @@ export default function HomePage() {
       <TabComponent />
       <div className={styles.header}>
         <button onClick={handleRefresh} disabled={loading} className={styles.refreshButton}>
-          <RefreshCw className={styles.refreshIcon} /> 重新加载
+          {/* <RefreshCw className={styles.refreshIcon} /> 重新加载 */}
         </button>
       </div>
       <div className={styles.grid}>
         {/* 轮播图  */}
-        <CarouselCard carousel={data.carousel} title="精选轮播" />
         <RecommendCard title="推荐列表" items={data.recommend} />
+        <CarouselCard carousel={data.carousel} title="精选轮播" />
         <LatestResourceCard title="最新资源" items={data.latest} />
-        <HotCard title="最热资源" hot={data.hot} />
         <HotCard title="高收益资源" hot={data.top} />
+        <HotCard title="最热资源" hot={data.hot} />
+
       </div>
+      <ResourceCardList title="资源列表" resources={resourceData} />
 
     </div>
   );
