@@ -5,7 +5,7 @@ import TabComponent from '../../components/TabComponent/TabComponent';
 import RecommendCard from '../../components/RecommendCard/RecommendCard';
 import LatestResourceCard from '../../components/LatestResourceCard/LatestResourceCard';
 import HotCard from '../../components/HotCard/HotCard';
-
+import CarouselCard from '../../components/CarouselCard/CarouselCard';
 const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
 
 export default function HomePage() {
@@ -48,11 +48,14 @@ export default function HomePage() {
         </button>
       </div>
       <div className={styles.grid}>
+        {/* 轮播图  */}
+        <CarouselCard carousel={data.carousel} title="精选轮播" />
         <RecommendCard title="推荐列表" items={data.recommend} />
         <LatestResourceCard title="最新资源" items={data.latest} />
-        <HotCard title="最热资源" hot={data.hot}/>
-        <HotCard title="高收益资源" hot={data.top}/>
+        <HotCard title="最热资源" hot={data.hot} />
+        <HotCard title="高收益资源" hot={data.top} />
       </div>
+
     </div>
   );
 }
