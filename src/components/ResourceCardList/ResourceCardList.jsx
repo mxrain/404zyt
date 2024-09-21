@@ -6,9 +6,9 @@ const ResourceCardList = ({ resources }) => {
         ? resources 
         : Object.entries(resources).map(([id, resource]) => ({
             ...resource,
-            id: resource.uuid || id
+            uuid: resource.uuid || id
           }));
-
+    
     if (resourceArray.length === 0) {
         return <div className={styles.empty}>暂无资源</div>;
     }
@@ -16,7 +16,7 @@ const ResourceCardList = ({ resources }) => {
     return (
         <div className={styles.gridContainer}>
             {resourceArray.map(resource => (
-                <ResourceCard key={resource.id} resource={resource} />
+                <ResourceCard key={resource.uuid} resource={resource} />
             ))}
         </div>
     );
