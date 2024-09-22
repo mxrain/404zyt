@@ -31,7 +31,7 @@ const HotCard = ({ hot, title }) => {
                             <span className={styles.itemTitle}>{item.title}</span>
                             <div 
                                 className={styles.itemDetails} 
-                                style={{backgroundImage: `url(${item.imageUrl}?${index + currentPage * itemsPerPage})`}}
+                                style={{backgroundImage: `url(${item.image}?${index + currentPage * itemsPerPage})`}}
                             >
                                 <div className={styles.itemInfo}>
                                     <p className={styles.itemDescription}>{item.description}</p>

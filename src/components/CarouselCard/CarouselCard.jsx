@@ -34,7 +34,7 @@ const CarouselCard = ({ carousel = [], title }) => {
     return (
         <div 
             className={styles.carouselCard} 
-            style={{ backgroundImage: `url(${carousel[currentIndex].imageUrl+`?${Date.now()}`})`  }}
+            style={{ backgroundImage: `url(${carousel[currentIndex].image+`?${Date.now()}`})`  }}
         >
             <div className={styles.overlay}>
                 <h2 className={styles.title}>{title}</h2>
