@@ -1,32 +1,6 @@
 {
-  "name": "海贼王全集",
-  "introduction": "海贼王全集",
-  "resource_type": "海贼王全集",
-  "resource_sub_type": "海贼王全集",
-  "resource_information": {},
-  "is_tup_up": true,
-  "link": "海贼王全集",
-  "uploaded": 1727017574,
-  "update_time": 1727017616,
-  "category": "资源分类",
-  "images": [],
-  "tags": {},
-  "source_links": {
-    "夸克网盘": "https://pan.quark.cn/s/1234567890",
-    "百度网盘": "https://pan.baidu.com/s/1234567890",
-    "阿里云盘": "https://pan.baidu.com/s/1234567890",
-    "腾讯微云": "https://pan.baidu.com/s/1234567890",
-    "115网盘": "https://pan.baidu.com/s/1234567890",
-    "迅雷网盘": "https://pan.baidu.com/s/1234567890",
-    "蓝奏云": "https://pan.baidu.com/s/1234567890",
-    "其他": "https://pan.baidu.com/s/1234567890"
-  },
-  "rating": 5,
-  "comments": 5,
-  "download_count": 5,
-  "download_limit": 5,
-  "password": "",
-  "description": "海贼王全集",
-  "other_information": {},
-  "uuid": "1727017616093"
+  "title": "海贼王全集",
+  "category": "影视动漫>动画",
+  "updatetime": 1727017616,
+  "uuid": "3451121408219"
 }
