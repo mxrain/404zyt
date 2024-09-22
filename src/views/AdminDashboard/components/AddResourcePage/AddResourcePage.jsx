@@ -8,6 +8,7 @@ export default function AddResourcePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [listData, setListData] = useState({});
+  const [modifiedResources, setModifiedResources] = useState(new Set());
 
   useEffect(() => {
     fetchResources();
@@ -61,8 +62,10 @@ export default function AddResourcePage() {
   };
 
   const handleSaveResource = async (resourceData, uuidData, listOptions) => {
+    let uuid;
     if (editingId) {
       // 更新现有资源
+      uuid = editingId;
       const updatedResources = {
         ...resources,
         [editingId]: resourceData,
@@ -72,7 +75,7 @@ export default function AddResourcePage() {
       await uploadToGitHub(uuidData, `zyt/${editingId}.json`);
     } else {
       // 添加新资源
-      const uuid = generateUUID();
+      uuid = generateUUID();
       const newResourceData = {
         ...resourceData,
         uuid,
@@ -86,6 +89,10 @@ export default function AddResourcePage() {
       await uploadToGitHub(updatedResources, 'uuid_resource_curd.json');
       await uploadToGitHub(uuidData, `zyt/${uuid}.json`);
     }
+    
+    // 将修改过的资源 UUID 添加到 Set 中
+    setModifiedResources(prev => new Set(prev).add(uuid));
+
     // 更新 listData
     const updatedListData = { ...listData };
     Object.keys(listOptions).forEach(option => {
@@ -127,9 +134,13 @@ export default function AddResourcePage() {
   const handleSubmitToGitHub = () => {
     console.log('提交到 GitHub 的 list.json 数据:', listData);
     console.log('提交到 GitHub 的 uuid_resource_curd.json 数据:', resources);
-    Object.keys(resources).forEach(uuid => {
+    modifiedResources.forEach(uuid => {
       console.log(`提交到 GitHub 的 ${uuid}.json 数据:`, resources[uuid]);
+      // 在这里实现实际的 GitHub 提交逻辑
+      uploadToGitHub(resources[uuid], `zyt/${uuid}.json`);
     });
+    // 提交完成后清空修改记录
+    setModifiedResources(new Set());
   };
 
   return (

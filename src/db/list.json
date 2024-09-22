@@ -579,140 +579,160 @@
       "title": "热门电影",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部精彩的电影",
-      "score": 4.5
+      "score": 4.5,
+      "category": "电影"
     },
     {
       "uuid": "2",
       "title": "最新游戏",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款好玩的游戏",
-      "score": 4.8
+      "score": 4.8,
+      "category": "游戏"
     },
     {
       "uuid": "3",
       "title": "经典电视剧",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部经典的电视剧",
-      "score": 4.7
+      "score": 4.7,
+      "category": "电视剧"
     },
     {
       "uuid": "4",
       "title": "动作冒险",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部刺激的动作冒险电影",
-      "score": 4.6
+      "score": 4.6,
+      "category": "电影"
     },
     {
       "uuid": "5",
       "title": "策略游戏",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款考验智慧的策略游戏",
-      "score": 4.9
+      "score": 4.9,
+      "category": "游戏"
     },
     {
       "uuid": "6",
       "title": "悬疑剧集",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部扣人心弦的悬疑剧",
-      "score": 4.8
+      "score": 4.8,
+      "category": "电视剧"
     },
     {
       "uuid": "7",
       "title": "科幻大片",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部震撼的科幻电影",
-      "score": 4.7
+      "score": 4.7,
+      "category": "电影"
     },
     {
       "uuid": "8",
       "title": "角色扮演",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款immersive的RPG游戏",
-      "score": 4.9
+      "score": 4.9,
+      "category": "游戏"
     },
     {
       "uuid": "9",
       "title": "喜剧精选",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部让人捧腹大笑的喜剧",
-      "score": 4.6
+      "score": 4.6,
+      "category": "电影"
     },
     {
       "uuid": "10",
       "title": "动画电影",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部精彩的动画电影",
-      "score": 4.8
+      "score": 4.8,
+      "category": "电影"
     },
     {
       "uuid": "11",
       "title": "体育竞技",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款激烈的体育竞技游戏",
-      "score": 4.7
+      "score": 4.7,
+      "category": "游戏"
     },
     {
       "uuid": "12",
       "title": "历史剧集",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部精彩的历史剧",
-      "score": 4.9
+      "score": 4.9,
+      "category": "电视剧"
     },
     {
       "uuid": "13",
       "title": "恐怖惊悚",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部令人毛骨悚然的恐怖片",
-      "score": 4.5
+      "score": 4.5,
+      "category": "电影"
     },
     {
       "uuid": "14",
       "title": "模拟经营",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款真实的模拟经营游戏",
-      "score": 4.8
+      "score": 4.8,
+      "category": "游戏"
     },
     {
       "uuid": "15",
       "title": "青春偶像剧",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部青春洋溢的偶像剧",
-      "score": 4.6
+      "score": 4.6,
+      "category": "电视剧"
     },
     {
       "uuid": "16",
       "title": "纪录片",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部引人深思的纪录片",
-      "score": 4.9
+      "score": 4.9,
+      "category": "纪录片"
     },
     {
       "uuid": "17",
       "title": "音乐游戏",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款充满节奏的音乐游戏",
-      "score": 4.7
+      "score": 4.7,
+      "category": "游戏"
     },
     {
       "uuid": "18",
       "title": "犯罪剧集",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部扣人心弦的犯罪剧",
-      "score": 4.8
+      "score": 4.8,
+      "category": "电视剧"
     },
     {
       "uuid": "19",
       "title": "家庭电影",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一部温馨的家庭电影",
-      "score": 4.7
+      "score": 4.7,
+      "category": "电影"
     },
     {
       "uuid": "20",
       "title": "解谜冒险",
       "cover": "https://picsum.photos/220/140",
       "introduction": "一款充满挑战的解谜冒险游戏",
-      "score": 4.9
+      "score": 4.9,
+      "category": "游戏"
     }
   ],
   "carousel": [

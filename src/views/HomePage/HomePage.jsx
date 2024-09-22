@@ -7,6 +7,7 @@ import LatestResourceCard from '../../components/LatestResourceCard/LatestResour
 import HotCard from '../../components/HotCard/HotCard';
 import CarouselCard from '../../components/CarouselCard/CarouselCard';
 import ResourceCardList  from '../../components/ResourceCardList/ResourceCardList';
+import RevenueRankingCard from '../../components/RevenueRankingCard/RevenueRankingCard';
 const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
 
 export default function HomePage() {
@@ -56,6 +57,7 @@ export default function HomePage() {
         <LatestResourceCard title="最新资源" items={data.latest} />
         <HotCard title="高收益资源" hot={data.top} />
         <HotCard title="最热资源" hot={data.hot} />
+        <RevenueRankingCard title="高收益资源" hot={data.top} />
 
       </div>
       <ResourceCardList title="资源列表" />
