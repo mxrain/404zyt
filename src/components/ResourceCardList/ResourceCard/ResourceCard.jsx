@@ -14,6 +14,7 @@ function ResourceCard({ resource }) {
       setInfoData(data);
     } catch (error) {
       console.error('获取资源信息失败:', error);
+      setInfoData({ name: '加载失败', introduction: '无法获取资源信息' });
     }
   }, []);
 
@@ -31,7 +32,7 @@ function ResourceCard({ resource }) {
         <img className={styles.cardImage} src={infoData.images[0]} alt={infoData.name} />
       )}
       <h3 className={styles.cardTitle}>{infoData.name}</h3>
-      <p className={styles.cardInfo}>{infoData.introduction.substring(0, 30)}...</p>
+      <p className={styles.cardInfo}>{(infoData?.introduction || '暂无简介').substring(0, 30)}...</p>
       <p className={styles.timeBox}>
         <Clock size={13}/> <span className='updateTimeFont'>更新时间: {new Date(resource.updatetime * 1000).toLocaleDateString()}</span>
       </p>

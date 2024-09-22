@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 import styles from './AddResourcePage.module.css';
-import ResourceFormModal from './ResourceFormModal'; // 新创建的组件
+import ResourceFormModal from './ResourceFormModal';
 
 export default function AddResourcePage() {
   const [resources, setResources] = useState({});
@@ -9,6 +11,8 @@ export default function AddResourcePage() {
   const [editingId, setEditingId] = useState(null);
   const [listData, setListData] = useState({});
   const [modifiedResources, setModifiedResources] = useState(new Set());
+
+  const { githubApi, owner, repo } = useSelector(state => state.auth);
 
   useEffect(() => {
     fetchResources();
@@ -64,7 +68,6 @@ export default function AddResourcePage() {
   const handleSaveResource = async (resourceData, uuidData, listOptions) => {
     let uuid;
     if (editingId) {
-      // 更新现有资源
       uuid = editingId;
       const updatedResources = {
         ...resources,
@@ -74,7 +77,6 @@ export default function AddResourcePage() {
       await uploadToGitHub(updatedResources, 'uuid_resource_curd.json');
       await uploadToGitHub(uuidData, `zyt/${editingId}.json`);
     } else {
-      // 添加新资源
       uuid = generateUUID();
       const newResourceData = {
         ...resourceData,
@@ -90,21 +92,57 @@ export default function AddResourcePage() {
       await uploadToGitHub(uuidData, `zyt/${uuid}.json`);
     }
     
-    // 将修改过的资源 UUID 添加到 Set 中
     setModifiedResources(prev => new Set(prev).add(uuid));
 
-    // 更新 listData
     const updatedListData = { ...listData };
     Object.keys(listOptions).forEach(option => {
       if (listOptions[option]) {
-        updatedListData[option] = [
-          ...(updatedListData[option] || []),
-          {
-            uuid: resourceData.uuid,
-            title: resourceData.title,
-            // ... 根据需要添加其他字段
-          }
-        ];
+        let newListItem;
+        switch (option) {
+          case 'recommend':
+            newListItem = {
+              uuid: uuid,
+              name: resourceData.title,
+              description: uuidData.introduction || '',
+              size: uuidData.resource_information.size || '',
+              image: uuidData.images[0] || 'https://picsum.photos/220/140',
+              updatetime: new Date(resourceData.updatetime * 1000).toISOString()
+            };
+            break;
+          case 'hot':
+            newListItem = {
+              uuid: uuid,
+              title: resourceData.title,
+              image: uuidData.images[0] || 'https://picsum.photos/220/140',
+              description: uuidData.introduction || '',
+              rating: uuidData.rating,
+              category: resourceData.category
+            };
+            break;
+          case 'latest':
+            newListItem = {
+              uuid: uuid,
+              description: uuidData.introduction || '',
+              image: uuidData.images[0] || 'https://picsum.photos/220/140',
+              title: resourceData.title,
+              updateTime: new Date(resourceData.updatetime * 1000).toISOString(),
+              tags: Object.values(uuidData.tags)
+            };
+            break;
+          case 'top':
+            newListItem = {
+              uuid: uuid,
+              title: resourceData.title,
+              link: uuidData.link,
+              image: uuidData.images[0] || 'https://picsum.photos/220/140',
+              introduction: uuidData.introduction || '',
+              score: uuidData.rating
+            };
+            break;
+          default:
+            newListItem = {};
+        }
+        updatedListData[option] = [newListItem, ...(updatedListData[option] || [])];
       }
     });
     setListData(updatedListData);
@@ -120,27 +158,127 @@ export default function AddResourcePage() {
     // await deleteFromGitHub(`zyt/${id}.json`);
   };
 
-  const uploadToGitHub = async (data, filename) => {
-    // This is a placeholder function. In a real application, you would implement
-    // the GitHub API calls here to update the file in the repository.
-    console.log(`Uploading ${filename} to GitHub:`, data);
-    // You'll need to implement the actual GitHub API calls here
+  const uploadToGitHub = async (data, path) => {
+    try {
+      let fileData;
+      try {
+        const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/contents/src/db/${path}`, {
+          headers: { Authorization: `token ${githubApi}` }
+        });
+        fileData = response.data;
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          // 文件不存在，创建新文件
+          fileData = null;
+        } else {
+          throw error;
+        }
+      }
+
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
+      const requestData = {
+        message: `Update ${path}`,
+        content,
+        branch: 'master' // 确保指定正确的分支
+      };
+
+      if (fileData) {
+        requestData.sha = fileData.sha;
+      }
+
+      await axios.put(`https://api.github.com/repos/${owner}/${repo}/contents/src/db/${path}`,
+        requestData,
+        {
+          headers: { Authorization: `token ${githubApi}` }
+        }
+      );
+
+      console.log(`成功更新 ${path}`);
+    } catch (error) {
+      console.error(`更新 ${path} 时出错:`, error);
+      throw error;
+    }
   };
 
   const generateUUID = () => {
     return Math.random().toString().slice(2, 15);
   };
 
-  const handleSubmitToGitHub = () => {
+  const handleSubmitToGitHub = async () => {
     console.log('提交到 GitHub 的 list.json 数据:', listData);
     console.log('提交到 GitHub 的 uuid_resource_curd.json 数据:', resources);
-    modifiedResources.forEach(uuid => {
-      console.log(`提交到 GitHub 的 ${uuid}.json 数据:`, resources[uuid]);
-      // 在这里实现实际的 GitHub 提交逻辑
-      uploadToGitHub(resources[uuid], `zyt/${uuid}.json`);
-    });
-    // 提交完成后清空修改记录
-    setModifiedResources(new Set());
+    
+    try {
+      // 获取当前的 commit SHA
+      const { data: refData } = await axios.get(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/master`, {
+        headers: { Authorization: `token ${githubApi}` }
+      });
+      const currentCommitSha = refData.object.sha;
+
+      // 准备树结构
+      const tree = [
+        {
+          path: 'src/db/uuid_resource_curd.json',
+          mode: '100644',
+          type: 'blob',
+          content: JSON.stringify(resources, null, 2)
+        },
+        {
+          path: 'src/db/list.json',
+          mode: '100644',
+          type: 'blob',
+          content: JSON.stringify(listData, null, 2)
+        }
+      ];
+
+      // 添加修改过的单个资源文件
+      for (const uuid of modifiedResources) {
+        tree.push({
+          path: `src/db/zyt/${uuid}.json`,
+          mode: '100644',
+          type: 'blob',
+          content: JSON.stringify(resources[uuid], null, 2)
+        });
+      }
+
+      // 创建树
+      const { data: treeData } = await axios.post(`https://api.github.com/repos/${owner}/${repo}/git/trees`, {
+        base_tree: currentCommitSha,
+        tree: tree
+      }, {
+        headers: { Authorization: `token ${githubApi}` }
+      });
+
+      // 创建提交
+      const { data: commitData } = await axios.post(`https://api.github.com/repos/${owner}/${repo}/git/commits`, {
+        message: 'Update resources and list data',
+        tree: treeData.sha,
+        parents: [currentCommitSha]
+      }, {
+        headers: { Authorization: `token ${githubApi}` }
+      });
+
+      // 更新 master 分支指向新的提交
+      await axios.patch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/master`, {
+        sha: commitData.sha
+      }, {
+        headers: { Authorization: `token ${githubApi}` }
+      });
+
+      // 清空修改列表
+      setModifiedResources(new Set());
+
+      // 重新获取数据
+      await fetchResources();
+      await fetchCategories();
+      await fetchListData();
+
+      alert('数据已成功提交到GitHub并刷新');
+    } catch (error) {
+      console.error('提交到GitHub时出错:', error);
+      alert('提交到GitHub时出错，请查看控制台以获取更多信息');
+    }
   };
 
   return (

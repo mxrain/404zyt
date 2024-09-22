@@ -9,36 +9,29 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
     uuid: '',
   });
   const [uuidData, setUuidData] = useState({
-    name: '资源名字',
-    introduction: '资源简介',
-    resource_type: '资源类型',
-    resource_sub_type: '资源子类型',
+    name: '',
+    introduction: '',
     resource_information: {},
     is_tup_up: false,
-    link: '资源链接',
-    uploaded: Math.floor(Date.now() / 1000),
-    update_time: Math.floor(Date.now() / 1000),
-    category: '资源分类',
-    images: [
-        
-    ],
+    quark_link: '',
+    uploaded: '',
+    update_time: '',
+    category: { main: '', sub: { main: '', sub: '' } },
+    resource_directory: '',
+    images: [],
     tags: {},
-    source_links: {
-        '夸克网盘': 'https://pan.quark.cn/s/1234567890',
-        '百度网盘': 'https://pan.baidu.com/s/1234567890',
-        '阿里云盘': 'https://pan.baidu.com/s/1234567890',
-        '腾讯微云': 'https://pan.baidu.com/s/1234567890',
-        '115网盘': 'https://pan.baidu.com/s/1234567890',
-        '迅雷网盘': 'https://pan.baidu.com/s/1234567890',
-        '蓝奏云': 'https://pan.baidu.com/s/1234567890',
-        '其他': 'https://pan.baidu.com/s/1234567890',
-    },
-    rating: 5,
-    comments: 5,
-    download_count: 5,
-    download_limit: 5,
+    resource_type: '',
+    resource_sub_type: '',
+    link: '',
+    rating: 0,
+    comments: [],
+    download_count: 0,
+    download_limit: 0,
     password: '',
-    description: '资源描述',
+    source_links: {
+      '夸克网盘': 'https://pan.quark.cn/s/1234567890',
+      
+    },
     other_information: {}
   });
 
@@ -150,8 +143,8 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
     const listItem = {
       uuid,
       title: updatedResource.title,
-      name: updatedUuidData.name,
-      description: updatedUuidData.introduction,
+      name: updatedUuidData.name || updatedResource.title,
+      description: updatedUuidData.introduction || '',
       size: updatedUuidData.resource_information.size || '',
       image: updatedUuidData.images[0] || 'https://picsum.photos/220/140',
       updatetime: new Date(currentTime * 1000).toISOString(),
@@ -163,6 +156,13 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
       tags: Object.values(updatedUuidData.tags),
       score: updatedUuidData.rating,
       introduction: updatedUuidData.introduction,
+      resource_type: updatedUuidData.resource_type,
+      resource_sub_type: updatedUuidData.resource_sub_type,
+      is_tup_up: updatedUuidData.is_tup_up,
+      download_limit: updatedUuidData.download_limit,
+      password: updatedUuidData.password,
+      source_links: updatedUuidData.source_links,
+      other_information: updatedUuidData.other_information
     };
 
     // 根据 listOptions 决定添加到哪些列表
@@ -272,19 +272,27 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
               <label htmlFor="is_tup_up">是否置顶</label>
             </div>
             <input
+              type="text"
+              name="quark_link"
+              value={uuidData.quark_link}
+              onChange={handleUuidDataChange}
+              placeholder="夸克链接"
+              className={styles.input}
+            />
+            <input
+              type="text"
+              name="resource_directory"
+              value={uuidData.resource_directory}
+              onChange={handleUuidDataChange}
+              placeholder="资源目录"
+              className={styles.input}
+            />
+            <input
               type="number"
               name="rating"
               value={uuidData.rating}
               onChange={handleUuidDataChange}
               placeholder="评分"
-              className={styles.input}
-            />
-            <input
-              type="number"
-              name="comments"
-              value={uuidData.comments}
-              onChange={handleUuidDataChange}
-              placeholder="评论数"
               className={styles.input}
             />
             <input
