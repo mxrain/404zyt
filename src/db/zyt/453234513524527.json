@@ -1,6 +1,53 @@
 {
-  "title": "哈利波特5143241234",
-  "updatetime": 1726999442,
-  "category": "影视动漫>短剧",
+  "name": "哈利波特4",
+  "introduction": "《哈利波特》是一系列魔幻文学作品，由英国作家J.K.罗琳创作。故事讲述了孤儿男孩哈利·波特在霍格沃茨魔法学校的冒险经历，以及他与朋友们对抗邪恶巫师伏地魔的故事。这部作品以其丰富的想象力、引人入胜的情节和深刻的主题而闻名于世，成为了全球畅销书和成功的电影系列。",
+  "resource_type": "图书",
+  "resource_sub_type": "魔幻小说",
+  "resource_information": {
+    "author": "J.K.罗琳",
+    "publisher": "布鲁姆斯伯里出版社",
+    "language": "英语",
+    "first_published": "1997年6月26日",
+    "series": "哈利波特系列"
+  },
+  "is_tup_up": false,
+  "link": "https://pan.quark.cn/s/8495f93f51a6",
+  "uploaded": 161598390000,
+  "update_time": 1726999529,
+  "category": "图书>小说>魔幻小说",
+  "images": [
+    "https://picsum.photos/220/140"
+  ],
+  "tags": {
+    "文学类型": [
+      "魔幻",
+      "冒险"
+    ],
+    "主题": [
+      "友情",
+      "勇气",
+      "成长"
+    ],
+    "作者": [
+      "J.K.罗琳"
+    ],
+    "特色": [
+      "魔法世界",
+      "角色塑造",
+      "情节设计"
+    ]
+  },
+  "source_links": {
+    "阿里云盘": "https://pan.xxxx",
+    "夸克云盘": "https://pan.xxxx",
+    "百度网盘": "https://pan.baidu.com/s/1234567890"
+  },
+  "rating": 4.9,
+  "comments": 10000,
+  "download_count": 100000,
+  "download_limit": 0,
+  "password": "",
+  "description": "哈利波特系列是一部充满魔法、友情和冒险的经典魔幻小说，它不仅吸引了全球数百万读者，还激发了人们对魔法世界的无限想象。",
+  "other_information": {},
   "uuid": "453234513524527"
 }
