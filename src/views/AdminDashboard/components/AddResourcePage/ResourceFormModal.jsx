@@ -9,29 +9,36 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
     uuid: '',
   });
   const [uuidData, setUuidData] = useState({
-    name: '',
-    introduction: '',
+    name: '资源名字',
+    introduction: '资源简介',
+    resource_type: '资源类型',
+    resource_sub_type: '资源子类型',
     resource_information: {},
     is_tup_up: false,
-    quark_link: '',
-    uploaded: '',
-    update_time: '',
-    category: { main: '', sub: { main: '', sub: '' } },
-    resource_directory: '',
-    images: [],
+    link: '资源链接',
+    uploaded: Math.floor(Date.now() / 1000),
+    update_time: Math.floor(Date.now() / 1000),
+    category: '资源分类',
+    images: [
+        
+    ],
     tags: {},
-    resource_type: '',
-    resource_sub_type: '',
-    link: '',
-    rating: 0,
-    comments: [],
-    download_count: 0,
-    download_limit: 0,
-    password: '',
     source_links: {
-      '夸克网盘': 'https://pan.quark.cn/s/1234567890',
-      
+        '夸克网盘': 'https://pan.quark.cn/s/1234567890',
+        '百度网盘': 'https://pan.baidu.com/s/1234567890',
+        '阿里云盘': 'https://pan.baidu.com/s/1234567890',
+        '腾讯微云': 'https://pan.baidu.com/s/1234567890',
+        '115网盘': 'https://pan.baidu.com/s/1234567890',
+        '迅雷网盘': 'https://pan.baidu.com/s/1234567890',
+        '蓝奏云': 'https://pan.baidu.com/s/1234567890',
+        '其他': 'https://pan.baidu.com/s/1234567890',
     },
+    rating: 5,
+    comments: 5,
+    download_count: 5,
+    download_limit: 5,
+    password: '',
+    description: '资源描述',
     other_information: {}
   });
 
@@ -181,16 +188,19 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
   };
 
   const renderCategoryOptions = (obj, prefix = '') => {
-    return Object.entries(obj).map(([key, value]) => {
+    return Object.entries(obj).flatMap(([key, value]) => {
       const fullPath = prefix ? `${prefix}>${key}` : key;
       if (value.items) {
-        return (
+        return [
           <optgroup key={fullPath} label={fullPath}>
-            {renderCategoryOptions(value.items, fullPath)}
+            {Object.entries(value.items).map(([subKey, subValue]) => {
+              const subFullPath = `${fullPath}>${subKey}`;
+              return <option key={subFullPath} value={subFullPath}>{subFullPath}</option>;
+            })}
           </optgroup>
-        );
+        ];
       }
-      return <option key={fullPath} value={fullPath}>{fullPath}</option>;
+      return [<option key={fullPath} value={fullPath}>{fullPath}</option>];
     });
   };
 
@@ -272,27 +282,19 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
               <label htmlFor="is_tup_up">是否置顶</label>
             </div>
             <input
-              type="text"
-              name="quark_link"
-              value={uuidData.quark_link}
-              onChange={handleUuidDataChange}
-              placeholder="夸克链接"
-              className={styles.input}
-            />
-            <input
-              type="text"
-              name="resource_directory"
-              value={uuidData.resource_directory}
-              onChange={handleUuidDataChange}
-              placeholder="资源目录"
-              className={styles.input}
-            />
-            <input
               type="number"
               name="rating"
               value={uuidData.rating}
               onChange={handleUuidDataChange}
               placeholder="评分"
+              className={styles.input}
+            />
+            <input
+              type="number"
+              name="comments"
+              value={uuidData.comments}
+              onChange={handleUuidDataChange}
+              placeholder="评论数"
               className={styles.input}
             />
             <input
