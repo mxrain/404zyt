@@ -47,3 +47,22 @@
     padding-left: 10px;
 }
 
+.goHome {
+    position: absolute;
+    bottom: 10px;
+    left:  2rem;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.goHome:hover {
+    background-color: #e0e0e0;
+
+}

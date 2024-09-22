@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addTab } from '../../../../features/sysTabs/tabSlice'
-import { FilePlus,Users, ShoppingBag, BarChart, Database, ChevronDown, ChevronRight } from 'lucide-react'
+import { Home,FilePlus,Users, ShoppingBag, BarChart, Database, ChevronDown, ChevronRight } from 'lucide-react'
 import styles from './Sidebar.module.css'
 
 export default function Sidebar() {
@@ -70,6 +70,10 @@ export default function Sidebar() {
       <Link to="/sys/users" className={styles.sidebarLink} onClick={() => handleClick('/sys/users', '用户')}>
         <Users size={18} />
         用户
+      </Link>
+      <Link to="/" className={styles.goHome} onClick={()=>{handleClick("/","前台首页") }}>
+        <Home size={16} />
+        前台首页
       </Link>
     </nav>
   )
