@@ -65,7 +65,7 @@ function ResourceCardList() {
       </div>
       <div className={styles.cardGrid}>
         {filteredResources.map((resource) => (
-          <ResourceCard key={resource.id} resource={resource} />
+          <ResourceCard key={resource.id} resource={{...resource, id: resource.id || resource.uuid}} />
         ))}
       </div>
     </div>

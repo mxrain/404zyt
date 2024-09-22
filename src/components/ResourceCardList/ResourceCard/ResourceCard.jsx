@@ -11,10 +11,13 @@ function ResourceCard({ resource }) {
     try {
       const response = await fetch(`${BASE_URL}/zyt/${uuid}.json`);
       const data = await response.json();
-      setInfoData(data);
+      setInfoData({
+        ...data,
+        tags: data.tags || {}  // 设置默认值
+      });
     } catch (error) {
       console.error('获取资源信息失败:', error);
-      setInfoData({ name: '加载失败', introduction: '无法获取资源信息' });
+      setInfoData({ name: '加载失败', introduction: '无法获取资源信息', tags: {} });
     }
   }, []);
 
@@ -23,7 +26,9 @@ function ResourceCard({ resource }) {
   }, [resource.id, fetchResource]);
 
   if (!infoData) {
-    return <div className={`${styles.card} ${styles.emptyCard}`}>加载中...</div>;
+    return <div className={`${styles.card} ${styles.emptyCard}`}>
+        加载中...
+    </div>;
   }
 
   return (
@@ -40,7 +45,7 @@ function ResourceCard({ resource }) {
         <Grid size={16} /> {infoData.category}
       </p>
       <div className={styles.tagContainer}>
-        {Object.values(infoData.tags).flat().slice(0, 5).map((tag, index) => (
+        {infoData.tags && Object.values(infoData.tags).flat().slice(0, 5).map((tag, index) => (
           <span key={index} className={styles.tagItem}>{tag}</span>
         ))}
       </div>
