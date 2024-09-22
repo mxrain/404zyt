@@ -48,7 +48,6 @@ export default function ListCrudCategory() {
     setNewItem({});
     setShowAddForm(false);
   };
-
   const handleEdit = (id) => {
     const itemToEdit = data.find(item => item[listConfig[category].fields.find(field => !field.editable).name] === id);
     setEditingId(id);
@@ -108,7 +107,6 @@ export default function ListCrudCategory() {
       setIsLoading(false);
     }
   };
-
   const getLatestFileContent = async () => {
     try {
       const response = await axios.get(
@@ -157,22 +155,23 @@ export default function ListCrudCategory() {
         return <input type="text" {...props} />;
     }
   };
-
   const renderTableRows = () => {  
     return data.map(item => {
       const id = item[listConfig[category].fields.find(field => !field.editable).name];
       const isEditing = editingId === id;
       return (
         <tr key={id}>
-          {listConfig[category].fields.map(field => (
-            <td key={field.name}>
-              {isEditing
-                ? renderFormField(field, editingItem, (updatedItem) => setEditingItem(updatedItem), true)
-                : field.type === 'image'
-                  ? <img src={item[field.name]} alt={item[field.name]} width="50" height="50" />
-                  : item[field.name]}
-            </td>
-          ))}
+          {listConfig[category].fields.map(field => {
+            return (
+              <td key={field.name}>
+                {isEditing
+                  ? renderFormField(field, editingItem, (updatedItem) => setEditingItem(updatedItem), true)
+                  : field.type === 'image'
+                    ? <img src={item[field.name]} alt={item[field.name]} width="50" height="50" />
+                    : item[field.name]}
+              </td>
+            );
+          })}
           <td>
             {isEditing ? (
               <>
@@ -196,7 +195,6 @@ export default function ListCrudCategory() {
       );
     });
   };
-
   if (isLoading) {
     return <div className={styles.loading}><Loader size={24} /> 加载中...</div>;
   }

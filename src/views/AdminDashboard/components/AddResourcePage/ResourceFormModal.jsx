@@ -156,14 +156,12 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
       image: updatedUuidData.images[0] || 'https://picsum.photos/220/140',
       updatetime: new Date(currentTime * 1000).toISOString(),
       link: updatedUuidData.link,
-      image: updatedUuidData.images[0] || 'https://picsum.photos/220/140',
       category: updatedResource.category,
       rating: updatedUuidData.rating,
       comments: updatedUuidData.comments,
       download_count: updatedUuidData.download_count,
       tags: Object.values(updatedUuidData.tags),
       score: updatedUuidData.rating,
-      image: updatedUuidData.images[0] || 'https://picsum.photos/220/140',
       introduction: updatedUuidData.introduction,
     };
 
