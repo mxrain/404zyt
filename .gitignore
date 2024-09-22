@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/db/db.json
-/src/db/list.json
+# /src/db/db.json
+# /src/db/list.json
