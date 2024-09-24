@@ -5,22 +5,22 @@ import styles from './AddResourcePage.module.css';
 import ResourceFormModal from './ResourceFormModal';
 
 export default function AddResourcePage() {
-  const [resources, setResources] = useState({});
-  const [categories, setCategories] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingId, setEditingId] = useState(null);
-  const [listData, setListData] = useState({});
-  const [modifiedResources, setModifiedResources] = useState(new Set());
+  const [resources, setResources] = useState({}); // 资源数据
+  const [categories, setCategories] = useState({}); // 分类数据
+  const [isModalOpen, setIsModalOpen] = useState(false); // 是否打开资源表单
+  const [editingId, setEditingId] = useState(null); // 编辑的资源ID
+  const [listData, setListData] = useState({}); // 列表数据
+  const [modifiedResources, setModifiedResources] = useState(new Set()); // 修改的资源ID集合
 
-  const { githubApi, owner, repo } = useSelector(state => state.auth);
+  const { githubApi, owner, repo } = useSelector(state => state.auth); // 获取GitHub API、仓库所有者和仓库名
 
-  useEffect(() => {
-    fetchResources();
-    fetchCategories();
-    fetchListData();
+  useEffect(() => { 
+    fetchResources(); // 获取资源数据
+    fetchCategories(); // 获取分类数据
+    fetchListData(); // 获取列表数据
   }, []);
 
-  const fetchResources = async () => {
+  const fetchResources = async () => {  // 获取资源数据
     try {
       const response = await fetch('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json');
       const data = await response.json();
@@ -30,7 +30,7 @@ export default function AddResourcePage() {
     }
   };
 
-  const fetchCategories = async () => {
+  const fetchCategories = async () => { // 获取分类数据
     try {
       const response = await fetch('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json');
       const data = await response.json();
@@ -50,24 +50,24 @@ export default function AddResourcePage() {
     }
   };
 
-  const handleAddResource = () => {
+  const handleAddResource = () => { // 添加资源
     setEditingId(null);
     setIsModalOpen(true);
   };
 
-  const handleEditResource = (id) => {
+  const handleEditResource = (id) => { // 编辑资源
     setEditingId(id);
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal = () => { // 关闭资源
     setIsModalOpen(false);
     setEditingId(null);
   };
 
-  const handleSaveResource = async (resourceData, uuidData, listOptions) => {
+  const handleSaveResource = async (resourceData, uuidData, listOptions) => { // 保存资源 
     let uuid;
-    if (editingId) {
+    if (editingId) { // 编辑的资源ID
       uuid = editingId;
       const updatedResources = {
         ...resources,
@@ -158,7 +158,7 @@ export default function AddResourcePage() {
     // await deleteFromGitHub(`zyt/${id}.json`);
   };
 
-  const uploadToGitHub = async (data, path) => {
+    const uploadToGitHub = async (data, path) => {
     try {
       let fileData;
       try {
@@ -200,7 +200,6 @@ export default function AddResourcePage() {
       throw error;
     }
   };
-
   const generateUUID = () => {
     return Math.random().toString().slice(2, 15);
   };
