@@ -26,32 +26,7 @@
       "category": "影视动漫>动画"
     }
   ],
-  "latest": [
-    {
-      "uuid": "3346457477401",
-      "description": "123123123123123123",
-      "image": "https://picsum.photos/220/140",
-      "title": "123123",
-      "updateTime": "2024-09-25T11:49:24.000Z",
-      "tags": []
-    },
-    {
-      "uuid": "8408964323302",
-      "description": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "image": "https://picsum.photos/220/140",
-      "title": "火影忍者全集",
-      "updateTime": "2024-09-22T15:10:02.000Z",
-      "tags": []
-    },
-    {
-      "uuid": "3451121408219",
-      "description": "海贼王全集",
-      "image": "https://picsum.photos/220/140",
-      "title": "海贼王全集",
-      "updateTime": "2024-09-22T15:06:56.000Z",
-      "tags": []
-    }
-  ],
+  "latest": [],
   "top": [],
   "carousel": []
 }
