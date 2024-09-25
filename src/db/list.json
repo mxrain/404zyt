@@ -52,31 +52,6 @@
       "tags": []
     }
   ],
-  "top": [
-    {
-      "uuid": "3346457477401",
-      "title": "123123",
-      "link": "123123123123",
-      "image": "https://picsum.photos/220/140",
-      "introduction": "123123123123123123",
-      "score": "2"
-    },
-    {
-      "uuid": "8408964323302",
-      "title": "火影忍者全集",
-      "link": "火影忍者全集",
-      "image": "https://picsum.photos/220/140",
-      "introduction": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "score": 5
-    },
-    {
-      "uuid": "3451121408219",
-      "title": "海贼王全集",
-      "link": "海贼王全集",
-      "image": "https://picsum.photos/220/140",
-      "introduction": "海贼王全集",
-      "score": 5
-    }
-  ],
+  "top": [],
   "carousel": []
 }
