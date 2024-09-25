@@ -1,31 +1,6 @@
 {
   "recommend": [],
-  "hot": [
-    {
-      "uuid": "3346457477401",
-      "title": "123123",
-      "image": "https://picsum.photos/220/140",
-      "description": "123123123123123123",
-      "rating": "2",
-      "category": "影视动漫>番剧"
-    },
-    {
-      "uuid": "8408964323302",
-      "title": "火影忍者全集",
-      "image": "https://picsum.photos/220/140",
-      "description": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "rating": 5,
-      "category": "影视动漫>动画"
-    },
-    {
-      "uuid": "3451121408219",
-      "title": "海贼王全集",
-      "image": "https://picsum.photos/220/140",
-      "description": "海贼王全集",
-      "rating": 5,
-      "category": "影视动漫>动画"
-    }
-  ],
+  "hot": [],
   "latest": [],
   "top": [],
   "carousel": []
