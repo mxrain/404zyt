@@ -21,7 +21,7 @@ import Dbcrud from './views/AdminDashboard/components/Dbcrud/Dbcrud';
 import ListCrud from './views/AdminDashboard/components/ListCrud/ListCrud';
 import ListCrudCategory from './views/AdminDashboard/components/ListCrudCategory/ListCrudCategory';
 import AddResourcePage from './views/AdminDashboard/components/AddResourcePage/AddResourcePage';
-
+import AddObjectPage from './views/AdminDashboard/components/AddObjectPage/AddObjectPage';
 function App() {
   return (
     <ErrorBoundary>
@@ -37,6 +37,7 @@ function App() {
             <Route index element={<Overview />} />
             <Route path="/sys/dbcrud" element={<Dbcrud />} />
             <Route path="/sys/addReasourcePage" element={<AddResourcePage />} />
+            <Route path="/sys/addObjectPage" element={<AddObjectPage />} />
             <Route path="/sys/listcrud" element={<ListCrud />} />
             <Route path="/sys/listcrud/:category" element={<ListCrudCategory />} />
             <Route path="/sys/products" element={<h1>产品页面</h1>} />

@@ -31,6 +31,10 @@ export default function Sidebar() {
         <FilePlus size={18} />
         数据上传
       </Link>
+      <Link to="/sys/addObjectPage" className={styles.sidebarLink} onClick={() => handleClick('/sys/addObjectPage', '添加数据')}>
+        <FilePlus size={18} />
+        添加数据
+      </Link>
       <Link to="/sys/dbcrud" className={styles.sidebarLink} onClick={() => handleClick('/sys/dbcrud', '分类')}>
         <Database size={18} />
         分类

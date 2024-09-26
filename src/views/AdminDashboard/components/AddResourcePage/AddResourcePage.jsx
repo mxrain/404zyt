@@ -129,15 +129,15 @@ export default function AddResourcePage() {
   const refreshData = useCallback(async () => {
     try {
       await Promise.all([
-        fetchData('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json', setResources),
-        fetchData('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json', setCategories),
-        fetchData('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/list.json', setListData),
+        fetchData(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/uuid_resource_curd.json`, setResources),
+        fetchData(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/db.json`, setCategories),
+        fetchData(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/list.json`, setListData),
       ]);
       setSelectedResources(new Set());
     } catch (error) {
       console.error('刷新数据时出错:', error);
     }
-  }, [fetchData]);
+  }, [fetchData, owner, repo]);
 
   const handleSubmitToGitHub = useCallback(async () => {
     try {
