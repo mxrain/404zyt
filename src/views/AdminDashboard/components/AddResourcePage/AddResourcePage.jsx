@@ -1,297 +1,295 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import styles from './AddResourcePage.module.css';
 import ResourceFormModal from './ResourceFormModal';
 
 export default function AddResourcePage() {
-  const [resources, setResources] = useState({}); // 资源数据
-  const [categories, setCategories] = useState({}); // 分类数据
-  const [isModalOpen, setIsModalOpen] = useState(false); // 是否打开资源表单
-  const [editingId, setEditingId] = useState(null); // 编辑的资源ID
-  const [listData, setListData] = useState({}); // 列表数据
-  const [modifiedResources, setModifiedResources] = useState(new Set()); // 修改的资源ID集合
+  const [resources, setResources] = useState({});
+  const [categories, setCategories] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [listData, setListData] = useState({});
+  const [modifiedResources, setModifiedResources] = useState(new Set());
+  const [deletedResources, setDeletedResources] = useState(new Set());
+  const [newResources, setNewResources] = useState(new Set());
+  const [selectedResources, setSelectedResources] = useState(new Set());
 
-  const { githubApi, owner, repo } = useSelector(state => state.auth); // 获取GitHub API、仓库所有者和仓库名
+  const { githubApi, owner, repo } = useSelector(state => state.auth);
 
-  useEffect(() => { 
-    fetchResources(); // 获取资源数据
-    fetchCategories(); // 获取分类数据
-    fetchListData(); // 获取列表数据
+  const fetchData = useCallback(async (url, setter) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setter(data);
+    } catch (error) {
+      console.error(`从 ${url} 获取数据失败:`, error);
+    }
   }, []);
 
-  const fetchResources = async () => {  // 获取资源数据
+  const getLatestFileContent = useCallback(async (path) => {
     try {
-      const response = await fetch('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json');
-      const data = await response.json();
-      setResources(data);
+      const response = await axios.get(
+        `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=master`,
+        { headers: { Authorization: `token ${githubApi}` } }
+      );
+      return { sha: response.data.sha, content: atob(response.data.content) };
     } catch (error) {
-      console.error('Failed to fetch resources:', error);
+      if (error.response && error.response.status === 404) {
+        return { sha: null, content: null };
+      }
+      console.error(`获取文件内容时出错 (${path}):`, error);
+      throw error;
     }
-  };
+  }, [owner, repo, githubApi]);
 
-  const fetchCategories = async () => { // 获取分类数据
+  const prepareUpdates = useCallback(async () => {
+    const updates = [];
+
+    // 需要更新的文件
+    const filesToUpdate = [
+      { path: 'src/db/uuid_resource_curd.json', content: JSON.stringify(resources, null, 2), isNew: false },
+      { path: 'src/db/list.json', content: JSON.stringify(listData, null, 2), isNew: false },
+      ...Array.from(modifiedResources).map(uuid => ({
+        path: `src/db/zyt/${uuid}.json`,
+        content: JSON.stringify(resources[uuid], null, 2),
+        isNew: false
+      }))
+    ];
+
+    // 准备需要创建的新文件
+    const filesToCreate = Array.from(newResources).map(uuid => ({
+      path: `src/db/zyt/${uuid}.json`,
+      content: JSON.stringify(resources[uuid], null, 2),
+      isNew: true
+    }));
+
+    // 合并更新和创建的文件
+    const allFiles = [...filesToUpdate, ...filesToCreate];
+
+    for (const file of allFiles) {
+      const { sha, content } = await getLatestFileContent(file.path);
+      if (file.isNew) {
+        updates.push({ ...file, sha: null });
+      } else if (content !== file.content) {
+        updates.push({ ...file, sha });
+      }
+    }
+
+    // 准备需要删除的文件
+    for (const uuid of deletedResources) {
+      const { sha } = await getLatestFileContent(`src/db/zyt/${uuid}.json`);
+      if (sha) {
+        updates.push({ path: `src/db/zyt/${uuid}.json`, sha, delete: true });
+      }
+    }
+
+    return updates;
+  }, [resources, listData, modifiedResources, newResources, deletedResources, getLatestFileContent]);
+
+  const createFile = useCallback(async (path, content) => {
+    await axios.put(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        message: `创建 ${path} 通过管理后台`,
+        content: btoa(unescape(encodeURIComponent(content))),
+        branch: 'master'
+      },
+      { headers: { Authorization: `token ${githubApi}`, 'Content-Type': 'application/json' } }
+    );
+  }, [githubApi, owner, repo]);
+
+  const updateFile = useCallback(async (path, content, sha) => {
+    await axios.put(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        message: `更新 ${path} 通过管理后台`,
+        content: btoa(unescape(encodeURIComponent(content))),
+        sha: sha,
+        branch: 'master'
+      },
+      { headers: { Authorization: `token ${githubApi}`, 'Content-Type': 'application/json' } }
+    );
+  }, [githubApi, owner, repo]);
+
+  const deleteFile = useCallback(async (path, sha) => {
+    await axios.delete(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        data: {
+          message: `删除 ${path} 通过管理后台`,
+          sha: sha,
+          branch: 'master'
+        },
+        headers: { Authorization: `token ${githubApi}`, 'Content-Type': 'application/json' }
+      }
+    );
+  }, [githubApi, owner, repo]);
+
+  const refreshData = useCallback(async () => {
     try {
-      const response = await fetch('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json');
-      const data = await response.json();
-      setCategories(data);
+      await Promise.all([
+        fetchData('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json', setResources),
+        fetchData('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json', setCategories),
+        fetchData('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/list.json', setListData),
+      ]);
+      setSelectedResources(new Set());
     } catch (error) {
-      console.error('Failed to fetch categories:', error);
+      console.error('刷新数据时出错:', error);
     }
-  };
+  }, [fetchData]);
 
-  const fetchListData = async () => {
+  const handleSubmitToGitHub = useCallback(async () => {
     try {
-      const response = await fetch('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/list.json');
-      const data = await response.json();
-      setListData(data);
-    } catch (error) {
-      console.error('获取列表数据失败:', error);
-    }
-  };
+      const updates = await prepareUpdates();
 
-  const handleAddResource = () => { // 添加资源
+      if (updates.length === 0) {
+        alert('没有变更需要保存');
+        return;
+      }
+
+      for (const update of updates) {
+        if (update.delete) {
+          await deleteFile(update.path, update.sha);
+        } else if (update.sha) {
+          await updateFile(update.path, update.content, update.sha);
+        } else {
+          await createFile(update.path, update.content);
+        }
+      }
+
+      setModifiedResources(new Set());
+      setDeletedResources(new Set());
+      setNewResources(new Set());
+
+      await refreshData();
+
+      alert('数据已成功提交到 GitHub 并刷新');
+    } catch (error) {
+      console.error('提交到 GitHub 时出错:', error);
+      alert('保存数据时出错，请查看控制台以获取更多信息');
+    }
+  }, [prepareUpdates, deleteFile, updateFile, createFile, refreshData]);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
+
+  const handleAddResource = () => {
     setEditingId(null);
     setIsModalOpen(true);
   };
 
-  const handleEditResource = (id) => { // 编辑资源
+  const handleEditResource = (id) => {
     setEditingId(id);
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = () => { // 关闭资源
+  const deleteResource = (id) => {
+    setDeletedResources(prev => new Set(prev).add(id));
+    setResources(prev => {
+      const updated = { ...prev };
+      delete updated[id];
+      return updated;
+    });
+    setSelectedResources(prev => {
+      const newSelected = new Set(prev);
+      newSelected.delete(id);
+      return newSelected;
+    });
+  };
+
+  const handleCloseModal = () => {
     setIsModalOpen(false);
     setEditingId(null);
   };
 
-  const handleSaveResource = async (resourceData, uuidData, listOptions) => { // 保存资源 
-    let uuid;
-    if (editingId) { // 编辑的资源ID
-      uuid = editingId;
-      const updatedResources = {
-        ...resources,
-        [editingId]: resourceData,
-      };
-      setResources(updatedResources);
-      await uploadToGitHub(updatedResources, 'uuid_resource_curd.json');
-      await uploadToGitHub(uuidData, `zyt/${editingId}.json`);
+  const handleSaveResource = (updatedResource, updatedUuidData, updatedListOptions) => {
+    if (editingId) {
+      setResources(prev => ({
+        ...prev,
+        [editingId]: { ...prev[editingId], ...updatedResource }
+      }));
+      setModifiedResources(prev => new Set(prev).add(editingId));
     } else {
-      uuid = generateUUID();
-      const newResourceData = {
-        ...resourceData,
-        uuid,
-        updatetime: Math.floor(Date.now() / 1000),
-      };
-      const updatedResources = {
-        ...resources,
-        [uuid]: newResourceData,
-      };
-      setResources(updatedResources);
-      await uploadToGitHub(updatedResources, 'uuid_resource_curd.json');
-      await uploadToGitHub(uuidData, `zyt/${uuid}.json`);
+      const newId = updatedResource.uuid;
+      setResources(prev => ({
+        ...prev,
+        [newId]: updatedResource
+      }));
+      setNewResources(prev => new Set(prev).add(newId));
     }
-    
-    setModifiedResources(prev => new Set(prev).add(uuid));
-
-    const updatedListData = { ...listData };
-    Object.keys(listOptions).forEach(option => {
-      if (listOptions[option]) {
-        let newListItem;
-        switch (option) {
-          case 'recommend':
-            newListItem = {
-              uuid: uuid,
-              name: resourceData.title,
-              description: uuidData.introduction || '',
-              size: uuidData.resource_information.size || '',
-              image: uuidData.images[0] || 'https://picsum.photos/220/140',
-              updatetime: new Date(resourceData.updatetime * 1000).toISOString()
-            };
-            break;
-          case 'hot':
-            newListItem = {
-              uuid: uuid,
-              title: resourceData.title,
-              image: uuidData.images[0] || 'https://picsum.photos/220/140',
-              description: uuidData.introduction || '',
-              rating: uuidData.rating,
-              category: resourceData.category
-            };
-            break;
-          case 'latest':
-            newListItem = {
-              uuid: uuid,
-              description: uuidData.introduction || '',
-              image: uuidData.images[0] || 'https://picsum.photos/220/140',
-              title: resourceData.title,
-              updateTime: new Date(resourceData.updatetime * 1000).toISOString(),
-              tags: Object.values(uuidData.tags)
-            };
-            break;
-          case 'top':
-            newListItem = {
-              uuid: uuid,
-              title: resourceData.title,
-              link: uuidData.link,
-              image: uuidData.images[0] || 'https://picsum.photos/220/140',
-              introduction: uuidData.introduction || '',
-              score: uuidData.rating
-            };
-            break;
-          default:
-            newListItem = {};
-        }
-        updatedListData[option] = [newListItem, ...(updatedListData[option] || [])];
-      }
-    });
-    setListData(updatedListData);
-
     setIsModalOpen(false);
   };
 
-  const deleteResource = async (id) => {
-    const { [id]: _, ...updatedResources } = resources;
-    setResources(updatedResources);
-    await uploadToGitHub(updatedResources, 'uuid_resource_curd.json');
-    // 可能还需要删除对应的 UUID 文件
-    // await deleteFromGitHub(`zyt/${id}.json`);
-  };
-
-    const uploadToGitHub = async (data, path) => {
-    try {
-      let fileData;
-      try {
-        const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/contents/src/db/${path}`, {
-          headers: { Authorization: `token ${githubApi}` }
-        });
-        fileData = response.data;
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          // 文件不存在，创建新文件
-          fileData = null;
-        } else {
-          throw error;
-        }
-      }
-
-      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-
-      const requestData = {
-        message: `Update ${path}`,
-        content,
-        branch: 'master' // 确保指定正确的分支
-      };
-
-      if (fileData) {
-        requestData.sha = fileData.sha;
-      }
-
-      await axios.put(`https://api.github.com/repos/${owner}/${repo}/contents/src/db/${path}`,
-        requestData,
-        {
-          headers: { Authorization: `token ${githubApi}` }
-        }
-      );
-
-      console.log(`成功更新 ${path}`);
-    } catch (error) {
-      console.error(`更新 ${path} 时出错:`, error);
-      throw error;
+  const handleAddToList = (listType) => {
+    if (selectedResources.size === 0) {
+      alert('请先选择至少一个资源');
+      return;
     }
-  };
-  const generateUUID = () => {
-    return Math.random().toString().slice(2, 15);
-  };
 
-  const handleSubmitToGitHub = async () => {
-    console.log('提交到 GitHub 的 list.json 数据:', listData);
-    console.log('提交到 GitHub 的 uuid_resource_curd.json 数据:', resources);
-    
-    try {
-      // 获取当前的 commit SHA
-      const { data: refData } = await axios.get(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/master`, {
-        headers: { Authorization: `token ${githubApi}` }
+    setResources(prev => {
+      const updated = { ...prev };
+      selectedResources.forEach(id => {
+        updated[id] = {
+          ...updated[id],
+          listOptions: {
+            ...updated[id].listOptions,
+            [listType]: true,
+          },
+        };
+        setModifiedResources(prevMods => new Set(prevMods).add(id));
       });
-      const currentCommitSha = refData.object.sha;
+      return updated;
+    });
+    alert(`已将选中的资源添加到${listType === 'recommend' ? '推荐' : listType === 'hot' ? '热门' : listType === 'latest' ? '最新' : '置顶'}排行榜`);
+  };
 
-      // 准备树结构
-      const tree = [
-        {
-          path: 'src/db/uuid_resource_curd.json',
-          mode: '100644',
-          type: 'blob',
-          content: JSON.stringify(resources, null, 2)
-        },
-        {
-          path: 'src/db/list.json',
-          mode: '100644',
-          type: 'blob',
-          content: JSON.stringify(listData, null, 2)
-        }
-      ];
-
-      // 添加修改过的单个资源文件
-      for (const uuid of modifiedResources) {
-        tree.push({
-          path: `src/db/zyt/${uuid}.json`,
-          mode: '100644',
-          type: 'blob',
-          content: JSON.stringify(resources[uuid], null, 2)
-        });
+  // 选择单个资源
+  const handleSelectResource = (id) => {
+    setSelectedResources(prev => {
+      const newSelected = new Set(prev);
+      if (newSelected.has(id)) {
+        newSelected.delete(id);
+      } else {
+        newSelected.add(id);
       }
+      return newSelected;
+    });
+  };
 
-      // 创建树
-      const { data: treeData } = await axios.post(`https://api.github.com/repos/${owner}/${repo}/git/trees`, {
-        base_tree: currentCommitSha,
-        tree: tree
-      }, {
-        headers: { Authorization: `token ${githubApi}` }
-      });
-
-      // 创建提交
-      const { data: commitData } = await axios.post(`https://api.github.com/repos/${owner}/${repo}/git/commits`, {
-        message: 'Update resources and list data',
-        tree: treeData.sha,
-        parents: [currentCommitSha]
-      }, {
-        headers: { Authorization: `token ${githubApi}` }
-      });
-
-      // 更新 master 分支指向新的提交
-      await axios.patch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/master`, {
-        sha: commitData.sha
-      }, {
-        headers: { Authorization: `token ${githubApi}` }
-      });
-
-      // 清空修改列表
-      setModifiedResources(new Set());
-
-      // 重新获取数据
-      await fetchResources();
-      await fetchCategories();
-      await fetchListData();
-
-      alert('数据已成功提交到GitHub并刷新');
-    } catch (error) {
-      console.error('提交到GitHub时出错:', error);
-      alert('提交到GitHub时出错，请查看控制台以获取更多信息');
+  // 全选/取消全选
+  const handleSelectAll = () => {
+    if (selectedResources.size === Object.keys(resources).length) {
+      setSelectedResources(new Set());
+    } else {
+      setSelectedResources(new Set(Object.keys(resources)));
     }
   };
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>资源管理</h1>
-      <button onClick={handleAddResource} className={styles.addButton}>
-        添加资源
-      </button>
+      <div className={styles.buttonGroup}>
+        <button onClick={handleAddResource} className={`${styles.baseButton} ${styles.addButton}`}>添加资源</button>
+        <button onClick={() => handleAddToList('recommend')} className={`${styles.baseButton} ${styles.listButton}`}>添加到推荐</button>
+        <button onClick={() => handleAddToList('hot')} className={`${styles.baseButton} ${styles.listButton}`}>添加到热门</button>
+        <button onClick={() => handleAddToList('latest')} className={`${styles.baseButton} ${styles.listButton}`}>添加到最新</button>
+        <button onClick={() => handleAddToList('top')} className={`${styles.baseButton} ${styles.listButton}`}>添加到置顶</button>
+      </div>
 
       <div className={styles.resourceList}>
         <h2>资源列表</h2>
         <table className={styles.table}>
           <thead>
             <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  onChange={handleSelectAll}
+                  checked={selectedResources.size === Object.keys(resources).length && Object.keys(resources).length > 0}
+                />
+              </th>
               <th>标题</th>
               <th>分类</th>
               <th>更新时间</th>
@@ -301,6 +299,13 @@ export default function AddResourcePage() {
           <tbody>
             {Object.entries(resources).map(([id, resource]) => (
               <tr key={id}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedResources.has(id)}
+                    onChange={() => handleSelectResource(id)}
+                  />
+                </td>
                 <td>{resource.title}</td>
                 <td>{resource.category}</td>
                 <td>{new Date(resource.updatetime * 1000).toLocaleString()}</td>
@@ -314,9 +319,7 @@ export default function AddResourcePage() {
         </table>
       </div>
 
-      <button onClick={handleSubmitToGitHub} className={styles.submitButton}>
-        提交到 GitHub
-      </button>
+      <button onClick={handleSubmitToGitHub} className={styles.submitButton}>提交到 GitHub</button>
 
       {isModalOpen && (
         <ResourceFormModal

@@ -21,6 +21,14 @@ const tabSlice = createSlice({
       state.tabs = state.tabs.filter(tab => tab.path !== action.payload)
       localStorage.setItem('tabs', JSON.stringify(state.tabs))
     },
+    removeAllTabs: (state) => {
+      state.tabs = []
+      state.activeTab = ''
+      state.activeTabTitle = ''
+      localStorage.removeItem('tabs')
+      localStorage.removeItem('activeTab')
+      localStorage.removeItem('activeTabTitle')
+    },
     setActiveTab: (state, action) => {
       state.activeTab = action.payload
       localStorage.setItem('activeTab', state.activeTab)
@@ -32,5 +40,5 @@ const tabSlice = createSlice({
   }
 })
 
-export const { addTab, removeTab, setActiveTab, setActiveTabTitle } = tabSlice.actions
+export const { addTab, removeTab, removeAllTabs, setActiveTab, setActiveTabTitle } = tabSlice.actions
 export default tabSlice.reducer

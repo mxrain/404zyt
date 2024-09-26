@@ -58,7 +58,7 @@
 
 .select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 L2.451 5.658 C1.885 5.013 2.345 4 3.204 4 h9.592 a1 1 0 0 1 .753 1.659 l-4.796 5.48 a1 1 0 0 1-1.506 0 z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 12px;
@@ -83,7 +83,9 @@
 
 .buttonGroup {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row; /* 横向排列 */
+  gap: 1rem; /* 按钮之间的间距 */
+  justify-content: flex-end; /* 右侧对齐 */
   margin-top: 1.5rem;
 }
 
@@ -107,6 +109,7 @@
 
 .saveButton:hover {
   background-color: #45a049;
+  transform: translateY(-2px);
 }
 
 .cancelButton {
@@ -116,6 +119,7 @@
 
 .cancelButton:hover {
   background-color: #da190b;
+  transform: translateY(-2px);
 }
 
 .addButton {
@@ -161,4 +165,17 @@
 
 .modalContent::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .buttonGroup {
+    flex-direction: column; /* 纵向排列 */
+    align-items: stretch;
+  }
+
+  .saveButton,
+  .cancelButton {
+    width: 100%;
+  }
 }

@@ -8,37 +8,24 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
     updatetime: '',
     uuid: '',
   });
+
   const [uuidData, setUuidData] = useState({
-    name: '资源名字',
-    introduction: '资源简介',
-    resource_type: '资源类型',
-    resource_sub_type: '资源子类型',
+    name: '',
+    introduction: '',
     resource_information: {},
-    is_tup_up: false,
-    link: '资源链接',
+    link: '',
     uploaded: Math.floor(Date.now() / 1000),
     update_time: Math.floor(Date.now() / 1000),
-    category: '资源分类',
-    images: [
-        
-    ],
+    category: '',
+    images: [],
     tags: {},
-    source_links: {
-        '夸克网盘': 'https://pan.quark.cn/s/1234567890',
-        '百度网盘': 'https://pan.baidu.com/s/1234567890',
-        '阿里云盘': 'https://pan.baidu.com/s/1234567890',
-        '腾讯微云': 'https://pan.baidu.com/s/1234567890',
-        '115网盘': 'https://pan.baidu.com/s/1234567890',
-        '迅雷网盘': 'https://pan.baidu.com/s/1234567890',
-        '蓝奏云': 'https://pan.baidu.com/s/1234567890',
-        '其他': 'https://pan.baidu.com/s/1234567890',
-    },
-    rating: 5,
-    comments: 5,
-    download_count: 5,
-    download_limit: 5,
-    password: '',
-    description: '资源描述',
+    source_links: {},
+    rating: 0,
+    comments: 0,
+    download_count: 0,
+    download_limit: 0,
+    score: 0,
+    description: '',
     other_information: {}
   });
 
@@ -74,11 +61,8 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
   };
 
   const handleUuidDataChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setUuidData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    const { name, value } = e.target;
+    setUuidData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleComplexFieldChange = (fieldName, key, value) => {
@@ -137,42 +121,24 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
       ...resource,
       uuid,
       updatetime: currentTime,
-    };
-
-    const updatedUuidData = {
       ...uuidData,
-      uuid,
-      uploaded: uuidData.uploaded || currentTime,
-      update_time: currentTime,
     };
 
-    // 准备添加到各个列表的数据
     const listItem = {
       uuid,
-      title: updatedResource.title,
-      name: updatedUuidData.name || updatedResource.title,
-      description: updatedUuidData.introduction || '',
-      size: updatedUuidData.resource_information.size || '',
-      image: updatedUuidData.images[0] || 'https://picsum.photos/220/140',
+      name: uuidData.name,
+      description: uuidData.introduction || '',
+      size: uuidData.source_links?.info?.size || '',
+      image: uuidData.images[0] || 'https://picsum.photos/220/140',
       updatetime: new Date(currentTime * 1000).toISOString(),
-      link: updatedUuidData.link,
       category: updatedResource.category,
-      rating: updatedUuidData.rating,
-      comments: updatedUuidData.comments,
-      download_count: updatedUuidData.download_count,
-      tags: Object.values(updatedUuidData.tags),
-      score: updatedUuidData.rating,
-      introduction: updatedUuidData.introduction,
-      resource_type: updatedUuidData.resource_type,
-      resource_sub_type: updatedUuidData.resource_sub_type,
-      is_tup_up: updatedUuidData.is_tup_up,
-      download_limit: updatedUuidData.download_limit,
-      password: updatedUuidData.password,
-      source_links: updatedUuidData.source_links,
-      other_information: updatedUuidData.other_information
+      rating: uuidData.rating,
+      comments: uuidData.comments,
+      download_count: uuidData.download_count,
+      tags: Object.values(uuidData.tags).flat(),
+      score: uuidData.rating
     };
 
-    // 根据 listOptions 决定添加到哪些列表
     const updatedListOptions = {};
     Object.keys(listOptions).forEach(option => {
       if (listOptions[option]) {
@@ -180,7 +146,7 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
       }
     });
 
-    onSave(updatedResource, updatedUuidData, updatedListOptions);
+    onSave(updatedResource, uuidData, updatedListOptions);
   };
 
   const generateUUID = () => {
@@ -204,6 +170,27 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
     });
   };
 
+  const renderInputField = (type, name, value, onChange, placeholder, className) => (
+    <input
+      type={type}
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className={className}
+    />
+  );
+
+  const renderTextareaField = (name, value, onChange, placeholder, className) => (
+    <textarea
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className={className}
+    />
+  );
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
@@ -211,14 +198,7 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
         <form onSubmit={(e) => e.preventDefault()}>
           <div className={styles.formSection}>
             <h3>基本信息</h3>
-            <input
-              type="text"
-              name="title"
-              value={resource.title}
-              onChange={handleInputChange}
-              placeholder="标题"
-              className={styles.input}
-            />
+            {renderInputField('text', 'title', resource.title, handleInputChange, '标题', styles.input)}
             <select
               name="category"
               value={resource.category}
@@ -232,122 +212,23 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
 
           <div className={styles.formSection}>
             <h3>UUID 数据</h3>
-            <input
-              type="text"
-              name="name"
-              value={uuidData.name}
-              onChange={handleUuidDataChange}
-              placeholder="名称"
-              className={styles.input}
-            />
-            <textarea
-              name="introduction"
-              value={uuidData.introduction}
-              onChange={handleUuidDataChange}
-              placeholder="简介"
-              className={styles.textarea}
-            />
-            <input
-              type="text"
-              name="resource_type"
-              value={uuidData.resource_type}
-              onChange={handleUuidDataChange}
-              placeholder="资源类型"
-              className={styles.input}
-            />
-            <input
-              type="text"
-              name="resource_sub_type"
-              value={uuidData.resource_sub_type}
-              onChange={handleUuidDataChange}
-              placeholder="资源子类型"
-              className={styles.input}
-            />
-            <input
-              type="text"
-              name="link"
-              value={uuidData.link}
-              onChange={handleUuidDataChange}
-              placeholder="链接"
-              className={styles.input}
-            />
-            <div className={styles.checkboxGroup}>
-              <input
-                type="checkbox"
-                name="is_tup_up"
-                checked={uuidData.is_tup_up}
-                onChange={handleUuidDataChange}
-                id="is_tup_up"
-              />
-              <label htmlFor="is_tup_up">是否置顶</label>
-            </div>
-            <input
-              type="number"
-              name="rating"
-              value={uuidData.rating}
-              onChange={handleUuidDataChange}
-              placeholder="评分"
-              className={styles.input}
-            />
-            <input
-              type="number"
-              name="comments"
-              value={uuidData.comments}
-              onChange={handleUuidDataChange}
-              placeholder="评论数"
-              className={styles.input}
-            />
-            <input
-              type="number"
-              name="download_count"
-              value={uuidData.download_count}
-              onChange={handleUuidDataChange}
-              placeholder="下载次数"
-              className={styles.input}
-            />
-            <input
-              type="number"
-              name="download_limit"
-              value={uuidData.download_limit}
-              onChange={handleUuidDataChange}
-              placeholder="下载限制"
-              className={styles.input}
-            />
-            <input
-              type="password"
-              name="password"
-              value={uuidData.password}
-              onChange={handleUuidDataChange}
-              placeholder="密码"
-              className={styles.input}
-            />
-            <textarea
-              name="description"
-              value={uuidData.description}
-              onChange={handleUuidDataChange}
-              placeholder="描述"
-              className={styles.textarea}
-            />
+            {renderInputField('text', 'name', uuidData.name, handleUuidDataChange, '名称', styles.input)}
+            {renderTextareaField('introduction', uuidData.introduction, handleUuidDataChange, '简介', styles.textarea)}
+            {renderInputField('text', 'link', uuidData.link, handleUuidDataChange, '链接', styles.input)}
+            {renderInputField('number', 'rating', uuidData.rating, handleUuidDataChange, '评分', styles.input)}
+            {renderInputField('number', 'comments', uuidData.comments, handleUuidDataChange, '评论数', styles.input)}
+            {renderInputField('number', 'download_count', uuidData.download_count, handleUuidDataChange, '下载次数', styles.input)}
+            {renderInputField('number', 'download_limit', uuidData.download_limit, handleUuidDataChange, '下载限制', styles.input)}
+            {renderInputField('password', 'password', uuidData.password, handleUuidDataChange, '密码', styles.input)}
+            {renderTextareaField('description', uuidData.description, handleUuidDataChange, '描述', styles.textarea)}
           </div>
 
           <div className={styles.formSection}>
             <h3>资源信息</h3>
             {Object.entries(uuidData.resource_information).map(([key, value], index) => (
               <div key={index} className={styles.complexField}>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) => handleComplexFieldChange('resource_information', e.target.value, value)}
-                  placeholder="键"
-                  className={styles.input}
-                />
-                <input
-                  type="text"
-                  value={value}
-                  onChange={(e) => handleComplexFieldChange('resource_information', key, e.target.value)}
-                  placeholder="值"
-                  className={styles.input}
-                />
+                {renderInputField('text', key, key, (e) => handleComplexFieldChange('resource_information', e.target.value, value), '键', styles.input)}
+                {renderInputField('text', key, value, (e) => handleComplexFieldChange('resource_information', key, e.target.value), '值', styles.input)}
                 <button type="button" onClick={() => removeComplexField('resource_information', key)} className={styles.removeButton}>删除</button>
               </div>
             ))}
@@ -358,13 +239,7 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
             <h3>图片</h3>
             {uuidData.images.map((image, index) => (
               <div key={index} className={styles.arrayField}>
-                <input
-                  type="text"
-                  value={image}
-                  onChange={(e) => handleArrayFieldChange('images', index, e.target.value)}
-                  placeholder={`图片 ${index + 1}`}
-                  className={styles.input}
-                />
+                {renderInputField('text', `image_${index}`, image, (e) => handleArrayFieldChange('images', index, e.target.value), `图片 ${index + 1}`, styles.input)}
                 <button type="button" onClick={() => removeArrayField('images', index)} className={styles.removeButton}>删除</button>
               </div>
             ))}
@@ -375,20 +250,8 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
             <h3>标签</h3>
             {Object.entries(uuidData.tags).map(([key, value], index) => (
               <div key={index} className={styles.complexField}>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) => handleComplexFieldChange('tags', e.target.value, value)}
-                  placeholder="键"
-                  className={styles.input}
-                />
-                <input
-                  type="text"
-                  value={value}
-                  onChange={(e) => handleComplexFieldChange('tags', key, e.target.value)}
-                  placeholder="值"
-                  className={styles.input}
-                />
+                {renderInputField('text', key, key, (e) => handleComplexFieldChange('tags', e.target.value, value), '键', styles.input)}
+                {renderInputField('text', key, value, (e) => handleComplexFieldChange('tags', key, e.target.value), '值', styles.input)}
                 <button type="button" onClick={() => removeComplexField('tags', key)} className={styles.removeButton}>删除</button>
               </div>
             ))}
@@ -399,20 +262,8 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
             <h3>来源链接</h3>
             {Object.entries(uuidData.source_links).map(([key, value], index) => (
               <div key={index} className={styles.complexField}>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) => handleComplexFieldChange('source_links', e.target.value, value)}
-                  placeholder="键"
-                  className={styles.input}
-                />
-                <input
-                  type="text"
-                  value={value}
-                  onChange={(e) => handleComplexFieldChange('source_links', key, e.target.value)}
-                  placeholder="值"
-                  className={styles.input}
-                />
+                {renderInputField('text', key, key, (e) => handleComplexFieldChange('source_links', e.target.value, value), '键', styles.input)}
+                {renderInputField('text', key, value, (e) => handleComplexFieldChange('source_links', key, e.target.value), '值', styles.input)}
                 <button type="button" onClick={() => removeComplexField('source_links', key)} className={styles.removeButton}>删除</button>
               </div>
             ))}
@@ -423,20 +274,8 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
             <h3>其他信息</h3>
             {Object.entries(uuidData.other_information).map(([key, value], index) => (
               <div key={index} className={styles.complexField}>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) => handleComplexFieldChange('other_information', e.target.value, value)}
-                  placeholder="键"
-                  className={styles.input}
-                />
-                <input
-                  type="text"
-                  value={value}
-                  onChange={(e) => handleComplexFieldChange('other_information', key, e.target.value)}
-                  placeholder="值"
-                  className={styles.input}
-                />
+                {renderInputField('text', key, key, (e) => handleComplexFieldChange('other_information', e.target.value, value), '键', styles.input)}
+                {renderInputField('text', key, value, (e) => handleComplexFieldChange('other_information', key, e.target.value), '值', styles.input)}
                 <button type="button" onClick={() => removeComplexField('other_information', key)} className={styles.removeButton}>删除</button>
               </div>
             ))}

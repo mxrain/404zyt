@@ -15,77 +15,58 @@
   font-weight: 600;
 }
 
-.addButton {  
+.buttonGroup {
+  display: flex;
+  flex-direction: row; /* 横向排列 */
+  gap: 1rem; /* 按钮之间的间距 */
+  justify-content: center; /* 居中对齐 */
+  flex-wrap: wrap; /* 按钮换行以适应小屏幕 */
+  margin-bottom: 2rem;
+}
+
+.baseButton {
   padding: 0.75rem 1.5rem;
-  background-color: #3498db;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.addButton {
+  background-color: #3498db; /* 蓝色调 */
 }
 
 .addButton:hover {
   background-color: #2980b9;
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.listButton {
+  background-color: #2c7be5; /* 深蓝色 */
 }
 
-.input, .select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.input:focus, .select:focus {
-  outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
-.select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-}
-
-.button {
-  padding: 0.75rem 1.5rem;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.button:hover {
-  background-color: #27ae60;
+.listButton:hover {
+  background-color: #1a5bb8;
   transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.resourceList {
-  margin-top: 3rem;
+.listButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.resourceList h2 {
-  color: #2c3e50;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+.addButton,
+.listButton {
+  @extend .baseButton;
 }
 
 .table {
@@ -98,7 +79,8 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: none;
   padding: 1rem;
   text-align: left;
@@ -106,19 +88,15 @@
 
 .table th {
   background-color: #f8f9fa;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.table tr:nth-child(even) {
-  background-color: #f8f9fa;
+  font-weight: bold;
 }
 
 .table tr:hover {
   background-color: #e9ecef;
 }
 
-.editButton, .deleteButton {
+.editButton,
+.deleteButton {
   padding: 0.5rem 1rem;
   margin-right: 0.5rem;
   border: none;
@@ -148,59 +126,6 @@
   transform: translateY(-2px);
 }
 
-.checkboxGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.checkboxLabel {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.complexField {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.complexField input {
-  flex: 1;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.checkbox input {
-  margin: 0;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 1.5rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .table {
-    font-size: 0.9rem;
-  }
-
-  .editButton, .deleteButton {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-}
-
 .submitButton {
   padding: 0.75rem 1.5rem;
   background-color: #4CAF50;
@@ -212,6 +137,9 @@
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   margin-top: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .submitButton:hover {
@@ -219,8 +147,35 @@
   transform: translateY(-2px);
 }
 
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
 @media (max-width: 768px) {
+  .buttonGroup {
+    flex-direction: column; /* 纵向排列 */
+    align-items: center;
+  }
+
+  .addButton,
+  .listButton {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
   .submitButton {
     width: 100%;
+    margin-top: 2rem;
   }
 }
