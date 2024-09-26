@@ -1,75 +1,7 @@
 {
-  "recommend": [
-    {
-      "uuid": "8408964323302",
-      "name": "火影忍者全集",
-      "description": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "size": "",
-      "image": "https://picsum.photos/220/140",
-      "updatetime": "2024-09-22T15:10:02.000Z"
-    },
-    {
-      "uuid": "3451121408219",
-      "name": "海贼王全集",
-      "description": "海贼王全集",
-      "size": "",
-      "image": "https://picsum.photos/220/140",
-      "updatetime": "2024-09-22T15:06:56.000Z"
-    }
-  ],
-  "hot": [
-    {
-      "uuid": "8408964323302",
-      "title": "火影忍者全集",
-      "image": "https://picsum.photos/220/140",
-      "description": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "rating": 5,
-      "category": "影视动漫>动画"
-    },
-    {
-      "uuid": "3451121408219",
-      "title": "海贼王全集",
-      "image": "https://picsum.photos/220/140",
-      "description": "海贼王全集",
-      "rating": 5,
-      "category": "影视动漫>动画"
-    }
-  ],
-  "latest": [
-    {
-      "uuid": "8408964323302",
-      "description": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "image": "https://picsum.photos/220/140",
-      "title": "火影忍者全集",
-      "updateTime": "2024-09-22T15:10:02.000Z",
-      "tags": []
-    },
-    {
-      "uuid": "3451121408219",
-      "description": "海贼王全集",
-      "image": "https://picsum.photos/220/140",
-      "title": "海贼王全集",
-      "updateTime": "2024-09-22T15:06:56.000Z",
-      "tags": []
-    }
-  ],
-  "top": [
-    {
-      "uuid": "8408964323302",
-      "title": "火影忍者全集",
-      "link": "火影忍者全集",
-      "image": "https://picsum.photos/220/140",
-      "introduction": "资火影忍者全集火影忍者全集火影忍者全集火影忍者全集",
-      "score": 5
-    },
-    {
-      "uuid": "3451121408219",
-      "title": "海贼王全集",
-      "link": "海贼王全集",
-      "image": "https://picsum.photos/220/140",
-      "introduction": "海贼王全集",
-      "score": 5
-    }
-  ],
+  "recommend": [],
+  "hot": [],
+  "latest": [],
+  "top": [],
   "carousel": []
 }
