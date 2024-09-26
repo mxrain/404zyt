@@ -28,7 +28,7 @@ const HotCard = ({ hot, title }) => {
                 {currentItems.map((item, index) => (
                     <li key={item.id} className={styles.item}>
                         <Link to={item.link} className={styles.link}>
-                            <span className={styles.itemTitle}>{item.title}</span>
+                            <span className={styles.itemTitle}>{item.name}</span>
                             <div 
                                 className={styles.itemDetails} 
                                 style={{backgroundImage: `url(${item.image}?${index + currentPage * itemsPerPage})`}}
