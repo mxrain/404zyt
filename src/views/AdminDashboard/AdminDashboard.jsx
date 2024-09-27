@@ -8,13 +8,13 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Breadcrumb from './components/Breadcrumb/Breadcrumb';
 
 const AdminDashboard = () => {
-    const { user } = useSelector(state => state.auth);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const { user } = useSelector(state => state.auth);// 获取用户信息
+    const dispatch = useDispatch(); // 获取dispatch函数
+    const navigate = useNavigate(); // 获取导航函数
 
-    const handleLogout = () => {
-        dispatch(logout());
-        navigate('/login');
+    const handleLogout = () => { // 登出函数
+        dispatch(logout());// 调用登出函数
+        navigate('/login');// 跳转到登录页面
     };
 
     return (
