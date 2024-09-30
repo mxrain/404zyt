@@ -68,7 +68,7 @@ const Header = () => {
                         </button>
                         {isMenuOpen && <CategoryMenu categories={data} />}
                     </div>
-                    <Link to="/resource-help" className={styles.menuButton}>
+                    <Link to="https://chatbot.weixin.qq.com/webapp/zR6XpGC9NjMrGjpuuboUQACIxqCwLZ?robotName=%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2%E6%9C%BA%E5%99%A8%E4%BA%BA" className={styles.menuButton}>
 
 
                         <span className={styles.menuText}>资源求助</span>
