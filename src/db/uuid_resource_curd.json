@@ -1,34 +1,3 @@
 {
-    "uuid1": {
-        "category": "图书>小说>魔幻小说",
-        "images": [
-            "https://baidu.com"
-        ],
-        "tags": {},
-        "source_links": {
-            "quark": {
-                "link": "",
-                "psw": "",
-                "size": "3.2GB"
-            }
-        },
-        "uploaded": 161598390000,
-        "update_time": 161598390004
-    },
-    "uuid2": {
-        "category": "图书>小说>魔幻小说",
-        "images": [
-            "https://baidu.com"
-        ],
-        "tags": {},
-        "source_links": {
-            "quark": {
-                "link": "",
-                "password": "",
-                "size": "3.2GB"
-            }
-        },
-        "uploaded": 161598390000,
-        "update_time": 161598390004
-    }
+  
 }
