@@ -1,15 +1,7 @@
 {
-  "recommend": [
-    "uuid1727715036399",
-    "uuid1727715151799",
-    "uuid1727715359182",
-    "uuid1727715408061"
-  ],
+  "recommend": [],
   "hot": [],
   "latest": [],
   "top": [],
-  "carousel": [],
-  "delete": [
-    "uuid1727715036399"
-  ]
+  "carousel": []
 }
