@@ -29,5 +29,36 @@
     "download_count": 0,
     "download_limit": 0,
     "other_information": {}
+  },
+  "4ddb86f2-b06f-47a8-9ea4-44abba7bcd37": {
+    "name": "火影忍者",
+    "category": "影视动漫 > 动画",
+    "images": [
+      "https://picsum.photos/200/300",
+      "https://picsum.photos/200/300?a=1",
+      "https://picsum.photos/200/300?a=2",
+      "https://picsum.photos/200/300?a=3"
+    ],
+    "tags": [
+      "科幻",
+      "恐怖"
+    ],
+    "source_links": {
+      "夸克": {
+        "link": "https://picsum.photos/200/300?a=1",
+        "psw": "asd",
+        "size": "35GB"
+      }
+    },
+    "uploaded": 1728032942566,
+    "update_time": 1728032942566,
+    "introduction": "https://picsum.photos/200/300?a=1",
+    "resource_information": {},
+    "link": "https://picsum.photos/200/300?a=1",
+    "rating": 5,
+    "comments": 0,
+    "download_count": 0,
+    "download_limit": 0,
+    "other_information": {}
   }
 }
