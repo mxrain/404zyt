@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Clock, Grid, ExternalLink } from 'lucide-react';
 import styles from './ResourceCard.module.css';
 
-const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db';
+const BASE_URL = 'https://raw.gitmirror.com/mxrain/404zyt/master/src/db';
 
 function ResourceCard({ resource }) {
   const [infoData, setInfoData] = useState(null);

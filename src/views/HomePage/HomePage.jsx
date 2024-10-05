@@ -8,7 +8,7 @@ import HotCard from '../../components/HotCard/HotCard';
 import CarouselCard from '../../components/CarouselCard/CarouselCard';
 import ResourceCardList  from '../../components/ResourceCardList/ResourceCardList';
 import RevenueRankingCard from '../../components/RevenueRankingCard/RevenueRankingCard';
-const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
+const BASE_URL = 'https://raw.gitmirror.com/mxrain/404zyt/master/src/db/';
 
 export default function HomePage() {
   const [data, setData] = useState({

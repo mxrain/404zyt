@@ -12,7 +12,7 @@ function ResourceCardList() {
 
   const fetchResources = useCallback(async () => {
     try {
-      const response = await axios.get('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json');
+      const response = await axios.get('https://raw.gitmirror.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json');
       const resourceArray = Object.entries(response.data).map(([id, data]) => ({
         id,
         ...data

@@ -23,7 +23,7 @@ export default function ListCrudCategory() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/list.json`);
+      const response = await axios.get(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/list.json`);
       setData(response.data[category] || []);
     } catch (error) {
       console.error('获取数据时出错:', error);

@@ -45,7 +45,7 @@ export default function ResourceFormModal({ onClose, onSave, categories, editing
 
   const fetchUuidData = async (uuid) => {
     try {
-      const response = await fetch(`https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/zyt/${uuid}.json`);
+      const response = await fetch(`https://raw.gitmirror.com/mxrain/404zyt/master/src/db/zyt/${uuid}.json`);
       if (response.ok) {
         const data = await response.json();
         setUuidData(data);

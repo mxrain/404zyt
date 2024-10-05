@@ -152,7 +152,7 @@ const CRUDTable = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.get(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/db.json`);
+      const response = await axios.get(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/db.json`);
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

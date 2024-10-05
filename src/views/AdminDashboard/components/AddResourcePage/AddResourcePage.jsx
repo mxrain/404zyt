@@ -129,9 +129,9 @@ export default function AddResourcePage() {
   const refreshData = useCallback(async () => {
     try {
       await Promise.all([
-        fetchData(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/uuid_resource_curd.json`, setResources),
-        fetchData(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/db.json`, setCategories),
-        fetchData(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/list.json`, setListData),
+        fetchData(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/uuid_resource_curd.json`, setResources),
+        fetchData(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/db.json`, setCategories),
+        fetchData(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/list.json`, setListData),
       ]);
       setSelectedResources(new Set());
     } catch (error) {

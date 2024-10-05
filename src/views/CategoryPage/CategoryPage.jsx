@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import ItemCardSkeleton from '../../components/ItemCardSkeleton';
 
-const BASE_URL = 'https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/';
+const BASE_URL = 'https://raw.gitmirror.com/mxrain/404zyt/master/src/db/';
 const DEFAULT_IMAGE = 'https://picsum.photos/id/36/150/150';
 
 const CategoryPage = () => {

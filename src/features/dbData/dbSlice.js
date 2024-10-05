@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchDbData = createAsyncThunk(
     'db/fetchData',
     async () => {
-        const response = await axios.get('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json');
+        const response = await axios.get('https://raw.gitmirror.com/mxrain/404zyt/master/src/db/db.json');
         return response.data;
     }
 );

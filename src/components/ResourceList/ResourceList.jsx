@@ -47,7 +47,7 @@ const ResourceList = () => {
 
   const fetchResources = async () => {
     try {
-      const response = await axios.get('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json');
+      const response = await axios.get('https://raw.gitmirror.com/mxrain/404zyt/master/src/db/uuid_resource_curd.json');
       const data = response.data;
       const resourceArray = Object.entries(data).map(([uuid, info]) => ({
         uuid,
@@ -132,7 +132,7 @@ const ResourceDetail = ({ match }) => {
 
   const fetchResourceDetail = async () => {
     try {
-      const response = await axios.get(`https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/zyt/${match.params.uuid}.json`);
+      const response = await axios.get(`https://raw.gitmirror.com/mxrain/404zyt/master/src/db/zyt/${match.params.uuid}.json`);
       setResource(response.data);
     } catch (error) {
       console.error('Error fetching resource detail:', error);

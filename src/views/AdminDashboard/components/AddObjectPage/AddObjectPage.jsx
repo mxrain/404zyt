@@ -11,7 +11,7 @@ const CategorySelector = ({ onSelect }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://raw.githubusercontent.com/mxrain/404zyt/master/src/db/db.json');
+        const response = await axios.get('https://raw.gitmirror.com/mxrain/404zyt/master/src/db/db.json');
         setCategories(response.data);
       } catch (error) {
         console.error('获取分类数据失败:', error);
@@ -118,7 +118,7 @@ const AddObjectPage = () => {
 
   const fetchResources = useCallback(async () => {
     try {
-      const response = await axios.get(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/uuid_resource_curd.json`);
+      const response = await axios.get(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/uuid_resource_curd.json`);
       setResources(response.data);
     } catch (error) {
       console.error('获取资源时出错:', error);
@@ -198,7 +198,7 @@ const AddObjectPage = () => {
 
   const handleViewDetails = async (id) => { // 查看资源详情
     try {
-      const response = await axios.get(`https://raw.githubusercontent.com/${owner}/${repo}/master/src/db/zyt/${id}.json`);
+      const response = await axios.get(`https://raw.gitmirror.com/${owner}/${repo}/master/src/db/zyt/${id}.json`);
       setDetailedResource(response.data);
     } catch (error) {
       console.error('获取资源详情时出错:', error);
