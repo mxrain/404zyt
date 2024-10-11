@@ -1,115 +1,4 @@
 {
-  "影视动漫": {
-    "icon": "path_d_value_here",
-    "link": "/mv",
-    "items": {
-      "番剧": {
-        "icon": "path_d_value_here",
-        "link": "/anime/"
-      },
-      "动画": {
-        "icon": "path_d_value_here",
-        "link": "/animation/"
-      },
-      
-      "电影": {
-        "icon": "path_d_value_here",
-        "link": "/movie/"
-      },
-      "电视剧": {
-        "icon": "path_d_value_here",
-        "link": "/tv/"
-      },
-      "综艺": {
-        "icon": "path_d_value_here",
-        "link": "/variety/"
-      },
-      "纪录片": {
-        "icon": "path_d_value_here",
-        "link": "/documentary/"
-      },
-      "短剧": {
-        "icon": "path_d_value_here",
-        "link": "/short-film/"
-      },
-      "漫画": {
-        "icon": "path_d_value_here",
-        "link": "/comic/"
-      },
-      "小说": {
-        "icon": "path_d_value_here",
-        "link": "/novel/"
-      },
-      "有声书": {
-        "icon": "path_d_value_here",
-        "link": "/audiobook/"
-      }
-    }
-  },
-  "软件游戏": {
-    "icon": "path_d_value_here",
-    "link": "/software-game",
-    "items": {
-      "电脑软件": {
-        "icon": "path_d_value_here",
-        "link": "/pc-software/"
-      },
-      "手机软件": {
-        "icon": "path_d_value_here",
-        "link": "/mobile-software/"
-      },
-      "游戏": {
-        "icon": "path_d_value_here",
-        "link": "/game/",
-        "items": {
-          "单机游戏": {
-            "icon": "path_d_value_here",
-            "link": "/single-player-game/",
-            "items": {}
-          },
-          "网络游戏": {
-            "icon": "path_d_value_here",
-            "link": "/online-game/"
-          },
-          "手机游戏": {
-            "icon": "path_d_value_here",
-            "link": "/mobile-game/"
-          },
-          "游戏资源": {
-            "icon": "path_d_value_here",
-            "link": "/game-resource/"
-          }
-        }
-      }
-    }
-  },
-  "电子书": {
-    "icon": "path_d_value_here",
-    "link": "/ebook",
-    "items": {
-      "小说": {
-        "icon": "path_d_value_here",
-        "link": "/novel-ebook/",
-        "items": {}
-      },
-      "教材": {
-        "icon": "path_d_value_here",
-        "link": "/textbook/"
-      },
-      "杂志": {
-        "icon": "path_d_value_here",
-        "link": "/magazine/"
-      },
-      "漫画": {
-        "icon": "path_d_value_here",
-        "link": "/comic-ebook/"
-      },
-      "工具书": {
-        "icon": "path_d_value_here",
-        "link": "/reference-book/"
-      }
-    }
-  },
   "学习教育": {
     "icon": "path_d_value_here",
     "link": "/study",
@@ -191,6 +80,116 @@
       "工具": {
         "icon": "path_d_value_here",
         "link": "/tool/"
+      }
+    }
+  },
+  "影视动漫": {
+    "icon": "path_d_value_here",
+    "link": "mv",
+    "items": {
+      "动画": {
+        "icon": "path_d_value_here",
+        "link": "/animation/"
+      },
+      "电影": {
+        "icon": "path_d_value_here",
+        "link": "/movie/"
+      },
+      "电视剧": {
+        "icon": "path_d_value_here",
+        "link": "/tv/"
+      },
+      "综艺": {
+        "icon": "path_d_value_here",
+        "link": "/variety/"
+      },
+      "纪录片": {
+        "icon": "path_d_value_here",
+        "link": "/documentary/"
+      },
+      "短剧": {
+        "icon": "path_d_value_here",
+        "link": "/short-film/"
+      },
+      "漫画": {
+        "icon": "path_d_value_here",
+        "link": "/comic/"
+      },
+      "小说": {
+        "icon": "path_d_value_here",
+        "link": "/novel/"
+      },
+      "有声书": {
+        "icon": "path_d_value_here",
+        "link": "/audiobook/"
+      },
+      "番剧": {
+        "icon": "path_d_value_here",
+        "link": "anime"
+      }
+    }
+  },
+  "软件游戏": {
+    "icon": "path_d_value_here",
+    "link": "software-game",
+    "items": {
+      "电脑软件": {
+        "icon": "path_d_value_here",
+        "link": "/pc-software/"
+      },
+      "手机软件": {
+        "icon": "path_d_value_here",
+        "link": "/mobile-software/"
+      },
+      "游戏": {
+        "icon": "path_d_value_here",
+        "link": "/game/",
+        "items": {
+          "单机游戏": {
+            "icon": "path_d_value_here",
+            "link": "/single-player-game/",
+            "items": {}
+          },
+          "网络游戏": {
+            "icon": "path_d_value_here",
+            "link": "/online-game/"
+          },
+          "手机游戏": {
+            "icon": "path_d_value_here",
+            "link": "/mobile-game/"
+          },
+          "游戏资源": {
+            "icon": "path_d_value_here",
+            "link": "/game-resource/"
+          }
+        }
+      }
+    }
+  },
+  "电子书": {
+    "icon": "path_d_value_here",
+    "link": "ebook",
+    "items": {
+      "小说": {
+        "icon": "path_d_value_here",
+        "link": "/novel-ebook/",
+        "items": {}
+      },
+      "教材": {
+        "icon": "path_d_value_here",
+        "link": "/textbook/"
+      },
+      "杂志": {
+        "icon": "path_d_value_here",
+        "link": "/magazine/"
+      },
+      "漫画": {
+        "icon": "path_d_value_here",
+        "link": "/comic-ebook/"
+      },
+      "工具书": {
+        "icon": "path_d_value_here",
+        "link": "/reference-book/"
       }
     }
   }
