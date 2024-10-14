@@ -4,7 +4,11 @@
   "images": [
     "https://www.charlesproxy.com/assets/sm/upload/e8/jh/mj/ox/charles-windows.png?k=81ba37843a"
   ],
-  "tags": {},
+  "tags": [
+    "Linux",
+    "MacOS",
+    "Windows"
+  ],
   "source_links": {
     "夸克": {
       "link": "https://pan.quark.cn/s/a87aa2a0bc46",
@@ -13,7 +17,7 @@
     }
   },
   "uploaded": 1728881724042,
-  "update_time": 1728881724042,
+  "update_time": 1728890932027,
   "introduction": "Charles 是一个 HTTP 代理/HTTP 监视器/反向代理，它使开发人员能够查看其机器与 Internet 之间的所有 HTTP 和 SSL/HTTPS 流量。这包括请求、响应和 HTTP 标头（包含 Cookie 和缓存信息）。",
   "resource_information": {
     "使用文档": "https://www.charlesproxy.com/documentation/"
