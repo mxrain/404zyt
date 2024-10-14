@@ -133,29 +133,6 @@
     "icon": "path_d_value_here",
     "link": "software-game",
     "items": {
-      "游戏": {
-        "icon": "path_d_value_here",
-        "link": "/game/",
-        "items": {
-          "单机游戏": {
-            "icon": "path_d_value_here",
-            "link": "/single-player-game/",
-            "items": {}
-          },
-          "网络游戏": {
-            "icon": "path_d_value_here",
-            "link": "/online-game/"
-          },
-          "手机游戏": {
-            "icon": "path_d_value_here",
-            "link": "/mobile-game/"
-          },
-          "游戏资源": {
-            "icon": "path_d_value_here",
-            "link": "/game-resource/"
-          }
-        }
-      },
       "电脑软件": {
         "icon": "path_d_value_here",
         "link": "pc-software"
@@ -163,6 +140,16 @@
       "手机软件": {
         "icon": "path_d_value_here",
         "link": "mobile-software"
+      },
+      "游戏": {
+        "icon": "path_d_value_here",
+        "link": "game",
+        "items": {
+          "switch游戏": {
+            "icon": "",
+            "link": "switch"
+          }
+        }
       }
     }
   },
