@@ -1,131 +1,47 @@
 {
-  "学习教育": {
-    "icon": "path_d_value_here",
-    "link": "/study",
-    "items": {
-      "课程": {
-        "icon": "path_d_value_here",
-        "link": "/course/"
-      },
-      "资料": {
-        "icon": "path_d_value_here",
-        "link": "/material/"
-      }
-    }
-  },
-  "图片": {
-    "icon": "path_d_value_here",
-    "link": "/image",
-    "items": {
-      "风景": {
-        "icon": "path_d_value_here",
-        "link": "/scenery/"
-      },
-      "人物": {
-        "icon": "path_d_value_here",
-        "link": "/people/"
-      },
-      "动物": {
-        "icon": "path_d_value_here",
-        "link": "/animal/"
-      },
-      "卡通": {
-        "icon": "path_d_value_here",
-        "link": "/cartoon/"
-      },
-      "素材": {
-        "icon": "path_d_value_here",
-        "link": "/material-image/"
-      },
-      "壁纸": {
-        "icon": "path_d_value_here",
-        "link": "/wallpaper/"
-      }
-    }
-  },
-  "音乐": {
-    "icon": "path_d_value_here",
-    "link": "/music",
-    "items": {
-      "歌曲": {
-        "icon": "path_d_value_here",
-        "link": "/song/"
-      },
-      "专辑": {
-        "icon": "path_d_value_here",
-        "link": "/album/"
-      },
-      "演唱会": {
-        "icon": "path_d_value_here",
-        "link": "/concert/"
-      },
-      "音乐资源": {
-        "icon": "path_d_value_here",
-        "link": "/music-resource/"
-      }
-    }
-  },
-  "其他": {
-    "icon": "path_d_value_here",
-    "link": "/other",
-    "items": {
-      "素材": {
-        "icon": "path_d_value_here",
-        "link": "/material-other/"
-      },
-      "模板": {
-        "icon": "path_d_value_here",
-        "link": "/template/"
-      },
-      "工具": {
-        "icon": "path_d_value_here",
-        "link": "/tool/"
-      }
-    }
-  },
   "影视动漫": {
     "icon": "path_d_value_here",
     "link": "mv",
     "items": {
-      "动画": {
-        "icon": "path_d_value_here",
-        "link": "/animation/"
-      },
-      "电影": {
-        "icon": "path_d_value_here",
-        "link": "/movie/"
-      },
-      "电视剧": {
-        "icon": "path_d_value_here",
-        "link": "/tv/"
-      },
-      "综艺": {
-        "icon": "path_d_value_here",
-        "link": "/variety/"
-      },
-      "纪录片": {
-        "icon": "path_d_value_here",
-        "link": "/documentary/"
-      },
-      "短剧": {
-        "icon": "path_d_value_here",
-        "link": "/short-film/"
-      },
-      "漫画": {
-        "icon": "path_d_value_here",
-        "link": "/comic/"
-      },
-      "小说": {
-        "icon": "path_d_value_here",
-        "link": "/novel/"
-      },
-      "有声书": {
-        "icon": "path_d_value_here",
-        "link": "/audiobook/"
-      },
       "番剧": {
         "icon": "path_d_value_here",
         "link": "anime"
+      },
+      "动画": {
+        "icon": "path_d_value_here",
+        "link": "animation"
+      },
+      "电影": {
+        "icon": "path_d_value_here",
+        "link": "movie"
+      },
+      "电视剧": {
+        "icon": "path_d_value_here",
+        "link": "tv"
+      },
+      "综艺": {
+        "icon": "path_d_value_here",
+        "link": "variety"
+      },
+      "纪录片": {
+        "icon": "path_d_value_here",
+        "link": "documentary"
+      },
+      "短剧": {
+        "icon": "path_d_value_here",
+        "link": "short-film"
+      },
+      "漫画": {
+        "icon": "path_d_value_here",
+        "link": "comic"
+      },
+      "小说": {
+        "icon": "path_d_value_here",
+        "link": "novel"
+      },
+      "有声书": {
+        "icon": "path_d_value_here",
+        "link": "audiobook"
       }
     }
   },
@@ -145,9 +61,9 @@
         "icon": "path_d_value_here",
         "link": "game",
         "items": {
-          "switch游戏": {
-            "icon": "",
-            "link": "switch"
+          "游戏资源": {
+            "icon": "path_d_value_here",
+            "link": "game-resource"
           }
         }
       }
@@ -159,24 +75,108 @@
     "items": {
       "小说": {
         "icon": "path_d_value_here",
-        "link": "/novel-ebook/",
+        "link": "novel-ebook",
         "items": {}
       },
       "教材": {
         "icon": "path_d_value_here",
-        "link": "/textbook/"
+        "link": "textbook"
       },
       "杂志": {
         "icon": "path_d_value_here",
-        "link": "/magazine/"
+        "link": "magazine"
       },
       "漫画": {
         "icon": "path_d_value_here",
-        "link": "/comic-ebook/"
+        "link": "comic-ebook"
       },
       "工具书": {
         "icon": "path_d_value_here",
-        "link": "/reference-book/"
+        "link": "reference-book"
+      }
+    }
+  },
+  "学习教育": {
+    "icon": "path_d_value_here",
+    "link": "study",
+    "items": {
+      "课程": {
+        "icon": "path_d_value_here",
+        "link": "course"
+      },
+      "资料": {
+        "icon": "path_d_value_here",
+        "link": "material"
+      }
+    }
+  },
+  "图片": {
+    "icon": "path_d_value_here",
+    "link": "image",
+    "items": {
+      "风景": {
+        "icon": "path_d_value_here",
+        "link": "scenery"
+      },
+      "人物": {
+        "icon": "path_d_value_here",
+        "link": "people"
+      },
+      "动物": {
+        "icon": "path_d_value_here",
+        "link": "animal"
+      },
+      "卡通": {
+        "icon": "path_d_value_here",
+        "link": "cartoon"
+      },
+      "素材": {
+        "icon": "path_d_value_here",
+        "link": "material-image"
+      },
+      "壁纸": {
+        "icon": "path_d_value_here",
+        "link": "wallpaper"
+      }
+    }
+  },
+  "音乐": {
+    "icon": "path_d_value_here",
+    "link": "music",
+    "items": {
+      "歌曲": {
+        "icon": "path_d_value_here",
+        "link": "song"
+      },
+      "专辑": {
+        "icon": "path_d_value_here",
+        "link": "album"
+      },
+      "演唱会": {
+        "icon": "path_d_value_here",
+        "link": "concert"
+      },
+      "音乐资源": {
+        "icon": "path_d_value_here",
+        "link": "music-resource"
+      }
+    }
+  },
+  "其他": {
+    "icon": "path_d_value_here",
+    "link": "ther",
+    "items": {
+      "素材": {
+        "icon": "path_d_value_here",
+        "link": "material-other"
+      },
+      "模板": {
+        "icon": "path_d_value_here",
+        "link": "template"
+      },
+      "工具": {
+        "icon": "path_d_value_here",
+        "link": "tool"
       }
     }
   }
