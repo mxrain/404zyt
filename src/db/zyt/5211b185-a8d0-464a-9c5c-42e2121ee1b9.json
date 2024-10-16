@@ -1,0 +1,31 @@
+{
+  "name": "clash-verge 代理开源软件",
+  "category": "软件游戏 > 电脑软件",
+  "images": [
+    "https://img.4040000.xyz/file/3ed5bd3cf55955435bac9-1c27e30e3f4df9901f.png",
+    "https://img.4040000.xyz/file/dc2e95f3238a6057dc70d-54177a8a98fe5d2a0c.png",
+    "https://img.4040000.xyz/file/d0fd0a40109ebf7c421ee-08852fc9854220b8cf.png"
+  ],
+  "tags": [
+    "Windows"
+  ],
+  "source_links": {
+    "夸克": {
+      "link": "https://pan.quark.cn/s/c17fb659a525",
+      "psw": "w6fN",
+      "size": "442mb"
+    }
+  },
+  "uploaded": 1729085390632,
+  "update_time": 1729085390632,
+  "introduction": "基于 Tauri 的 Clash Meta GUI\n特性:\n- 内置Clash.Meta(mihomo)内核，并支持切换 Alpha 版本内核。\n- 简洁美观的用户界面，支持自定义主题颜色、代理组/托盘图标以及 CSS Injection。\n- 配置文件管理和增强（Merge 和 Script），配置文件语法提示。\n- 系统代理和守卫、TUN 模式。",
+  "resource_information": {
+    "GITHUB": "https://github.com/clash-verge-rev/clash-verge-rev"
+  },
+  "link": "https://www.clashverge.dev/",
+  "rating": 5,
+  "comments": 0,
+  "download_count": 0,
+  "download_limit": 0,
+  "other_information": {}
+}
