@@ -2,7 +2,8 @@
   "name": "telegram 聊天软件",
   "category": "软件游戏 > 电脑软件",
   "images": [
-    "https://img.4040000.xyz/file/b1bb9255be529e754d2a9-390eb4607b20753b22.png"
+    "https://img.4040000.xyz/file/b1bb9255be529e754d2a9-390eb4607b20753b22.png",
+    "https://telegram.org/img/tdirect_install.mp4"
   ],
   "tags": [
     "Windows",
@@ -19,7 +20,7 @@
     }
   },
   "uploaded": 1729127316713,
-  "update_time": 1729127316713,
+  "update_time": 1729127389473,
   "introduction": "a new era of messaging",
   "resource_information": {},
   "link": "https://telegram.org/",
