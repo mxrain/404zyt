@@ -20,9 +20,11 @@
     }
   },
   "uploaded": 1729127316713,
-  "update_time": 1729127389473,
+  "update_time": 1729127404168,
   "introduction": "a new era of messaging",
-  "resource_information": {},
+  "resource_information": {
+    "机器人开发": "https://core.telegram.org/bots"
+  },
   "link": "https://telegram.org/",
   "rating": 5,
   "comments": 0,
